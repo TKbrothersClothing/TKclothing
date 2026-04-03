@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+<div class="logo">TK CLOTHING</div>
+<div class="links">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="checkout.html">Checkout</a>
+</div>
+</header>
+
+<h1 class="title">Shop</h1>
+<div id="grid" class="grid"></div>
+
+<script>
+fetch('products.json')
+.then(r=>r.json())
+.then(data=>{{
+ let html=''
+ data.forEach(p=>{{
+ html+=`
+ <div class="card">
+ <img src="${{p.image}}">
+ <h3>${{p.name}}</h3>
+ <p>£${{p.price}}</p>
+ <button onclick="add('${{p.name}}',${{p.price}})">Add to Cart</button>
+ </div>
+ `
+ }})
+ document.getElementById('grid').innerHTML=html
+}})
+
+function add(name,price){{
+ let cart=JSON.parse(localStorage.getItem("cart")||"[]")
+ cart.push({{name,price}})
+ localStorage.setItem("cart",JSON.stringify(cart))
+ alert("Added to cart")
+}}
+</script>
+
+</body>
+</html>

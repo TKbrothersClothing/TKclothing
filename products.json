@@ -1,0 +1,359 @@
+[
+  {
+    "id": 1,
+    "name": "Gold TK Hoodie",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 2,
+    "name": "Sport TK Hoodie",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 3,
+    "name": "Line TK Hoodie",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 4,
+    "name": "Gold TK Joggers",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 5,
+    "name": "Sport TK Joggers",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 6,
+    "name": "Line TK Joggers",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 7,
+    "name": "Gold TK Cargos",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 8,
+    "name": "Sport TK Cargos",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 9,
+    "name": "Line TK Cargos",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 10,
+    "name": "Gold TK Tank Top",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 11,
+    "name": "Sport TK Tank Top",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 12,
+    "name": "Line TK Tank Top",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 13,
+    "name": "Gold TK Leggings",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 14,
+    "name": "Sport TK Leggings",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 15,
+    "name": "Line TK Leggings",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 16,
+    "name": "Gold TK Tracksuit Bottoms",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 17,
+    "name": "Sport TK Tracksuit Bottoms",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 18,
+    "name": "Line TK Tracksuit Bottoms",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 19,
+    "name": "Gold TK Tracksuit Jumper",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 20,
+    "name": "Sport TK Tracksuit Jumper",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 21,
+    "name": "Line TK Tracksuit Jumper",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 22,
+    "name": "Gold TK Tracksuit Zip",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 23,
+    "name": "Sport TK Tracksuit Zip",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 24,
+    "name": "Line TK Tracksuit Zip",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 25,
+    "name": "Gold TK Socks",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 26,
+    "name": "Sport TK Socks",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 27,
+    "name": "Line TK Socks",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 28,
+    "name": "Gold TK Shorts",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 29,
+    "name": "Sport TK Shorts",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 30,
+    "name": "Line TK Shorts",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 31,
+    "name": "Gold TK Boxers",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 32,
+    "name": "Sport TK Boxers",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 33,
+    "name": "Line TK Boxers",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 34,
+    "name": "Gold TK Tee",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 35,
+    "name": "Sport TK Tee",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 36,
+    "name": "Line TK Tee",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 37,
+    "name": "Gold TK Jeans",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 38,
+    "name": "Sport TK Jeans",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 39,
+    "name": "Line TK Jeans",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 40,
+    "name": "Gold TK Cropped Top",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 41,
+    "name": "Sport TK Cropped Top",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 42,
+    "name": "Line TK Cropped Top",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 43,
+    "name": "Gold TK Cropped Jacket",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 44,
+    "name": "Sport TK Cropped Jacket",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 45,
+    "name": "Line TK Cropped Jacket",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 46,
+    "name": "Gold TK Hat",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 47,
+    "name": "Sport TK Hat",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 48,
+    "name": "Line TK Hat",
+    "price": 18,
+    "image": "assets/model0.png",
+    "logo": "Line TK"
+  },
+  {
+    "id": 49,
+    "name": "Gold TK Beanie",
+    "price": 18,
+    "image": "assets/model1.png",
+    "logo": "Gold TK"
+  },
+  {
+    "id": 50,
+    "name": "Sport TK Beanie",
+    "price": 18,
+    "image": "assets/model2.png",
+    "logo": "Sport TK"
+  },
+  {
+    "id": 51,
+    "name": "Line TK Beanie",
+    "price": 18,
+    "image": "assets/model3.png",
+    "logo": "Line TK"
+  }
+]
