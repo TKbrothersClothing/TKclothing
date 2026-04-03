@@ -5,177 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TK Clothing</title>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-body {
-  background: #0a0a0a;
-  color: white;
-}
+<style>
+/* RESET + BASE */
+* {margin:0; padding:0; box-sizing:border-box; font-family: 'Montserrat', sans-serif;}
+body {background:#0a0a0a; color:white; overflow-x:hidden;}
 
 /* NAVBAR */
 header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 60px;
-  position: fixed;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  z-index: 100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 60px;
+  position:fixed; width:100%; top:0;
+  background:rgba(0,0,0,0.7); backdrop-filter:blur(10px); z-index:100;
+  transition:0.3s;
 }
-
-header h1 {
-  color: gold;
-  letter-spacing: 3px;
-}
-
+header.scrolled {background:rgba(0,0,0,0.9);}
+header h1 {color:gold; letter-spacing:3px; font-size:28px;}
 nav a {
-  margin-left: 30px;
-  text-decoration: none;
-  color: #ccc;
-  transition: 0.3s;
+  margin-left:30px; text-decoration:none; color:#ccc; transition:0.3s; font-weight:500;
 }
-
-nav a:hover {
-  color: gold;
-}
+nav a:hover {color:gold;}
 
 /* HERO */
 .hero {
-  height: 100vh;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), #0a0a0a),
-  url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 60px;
+  height:100vh;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.5), #0a0a0a),
+             url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab');
+  background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center;
+  padding-left:60px; position:relative; overflow:hidden;
 }
-
-.hero h2 {
-  font-size: 70px;
-  max-width: 600px;
-}
-
-.hero p {
-  margin: 20px 0;
-  color: #aaa;
-  font-size: 18px;
-}
-
-.btn {
-  padding: 14px 30px;
-  background: gold;
-  color: black;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
+.hero h2 {font-size:70px; max-width:700px; opacity:0; transform:translateY(30px); transition:1s;}
+.hero p {margin:20px 0; color:#aaa; font-size:18px; opacity:0; transform:translateY(30px); transition:1s;}
+.hero .btn {padding:14px 30px; background:gold; color:black; border:none; font-weight:bold; cursor:pointer; transition:0.3s; opacity:0; transform:translateY(30px);}
+.hero .btn:hover {transform:scale(1.05);}
+.hero.animate h2, .hero.animate p, .hero.animate .btn {opacity:1; transform:translateY(0);}
 
 /* SECTION */
-.section {
-  padding: 100px 60px;
-}
+.section {padding:100px 60px;}
+.section h2 {font-size:48px; margin-bottom:40px; opacity:0; transform:translateY(30px); transition:1s;}
+.section.animate h2 {opacity:1; transform:translateY(0);}
 
 /* CATEGORY GRID */
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-
+.categories {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px;}
 .category {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  cursor: pointer;
+  height:300px; background-size:cover; background-position:center; position:relative; cursor:pointer; overflow:hidden;
+  transition:0.5s; opacity:0; transform:translateY(30px);
 }
-
 .category::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
+  content:""; position:absolute; inset:0; background:rgba(0,0,0,0.4); transition:0.5s;
 }
-
-.category h3 {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  z-index: 2;
-  font-size: 24px;
-}
+.category h3 {position:absolute; bottom:20px; left:20px; z-index:2; font-size:24px;}
+.category:hover::after {background:rgba(0,0,0,0.1);}
+.category:hover {transform:scale(1.05);}
+.category.animate {opacity:1; transform:translateY(0);}
 
 /* PRODUCTS */
-.products {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
+.products {display:flex; gap:30px; flex-wrap:wrap; justify-content:center;}
 .product {
-  width: 260px;
-  background: #111;
-  padding: 15px;
-  border-radius: 10px;
-  transition: 0.3s;
+  width:260px; background:#111; padding:15px; border-radius:10px; transition:0.3s; opacity:0; transform:translateY(30px);
 }
-
-.product:hover {
-  transform: translateY(-8px);
-}
-
-.product img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.product h4 {
-  margin-top: 10px;
-}
-
-.product p {
-  color: #aaa;
-}
+.product:hover {transform:translateY(-8px) scale(1.03);}
+.product img {width:100%; border-radius:10px;}
+.product h4 {margin-top:10px;}
+.product p {color:#aaa;}
+.product.animate {opacity:1; transform:translateY(0);}
+.product .btn {margin-top:10px;}
 
 /* SPLIT SECTION */
-.split {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.split div {
-  flex: 1;
-  min-width: 300px;
-  padding: 60px;
-}
-
-.split img {
-  width: 100%;
-}
+.split {display:flex; flex-wrap:wrap;}
+.split div {flex:1; min-width:300px; padding:60px; opacity:0; transform:translateY(30px); transition:1s;}
+.split img {width:100%; border-radius:10px;}
+.split.animate div {opacity:1; transform:translateY(0);}
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px;
-  border-top: 1px solid #222;
-  color: #777;
-}
+footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
 
+/* MINI CART */
+#cart {
+  position:fixed; right:20px; top:80px; width:300px; background:#111; border-radius:10px; padding:20px; display:none;
+  box-shadow:0 0 20px rgba(0,0,0,0.7);
+  z-index:200;
+}
+#cart h3 {margin-bottom:15px;}
+#cart .item {display:flex; justify-content:space-between; margin-bottom:10px;}
+#cart .close {cursor:pointer; color:gold; float:right;}
 </style>
 </head>
 
@@ -194,12 +109,11 @@ footer {
 <section class="hero">
   <h2>TRAIN HARD. LIVE SHARP.</h2>
   <p>Premium gym & streetwear built for performance and lifestyle.</p>
-  <button class="btn">SHOP NOW</button>
+  <button class="btn" onclick="toggleCart()">VIEW CART</button>
 </section>
 
 <section class="section">
   <h2>Collections</h2>
-  <br>
   <div class="categories">
     <div class="category" style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438')">
       <h3>Gym Wear</h3>
@@ -215,30 +129,25 @@ footer {
 
 <section class="section">
   <h2>Featured Drops</h2>
-  <br>
   <div class="products">
-
     <div class="product">
       <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
       <h4>TK Black Hoodie</h4>
       <p>£40</p>
-      <button class="btn">Buy</button>
+      <button class="btn" onclick="addToCart('TK Black Hoodie',40)">Add</button>
     </div>
-
     <div class="product">
       <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
       <h4>TK White Tee</h4>
       <p>£25</p>
-      <button class="btn">Buy</button>
+      <button class="btn" onclick="addToCart('TK White Tee',25)">Add</button>
     </div>
-
     <div class="product">
       <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
       <h4>TK Cap</h4>
       <p>£20</p>
-      <button class="btn">Buy</button>
+      <button class="btn" onclick="addToCart('TK Cap',20)">Add</button>
     </div>
-
   </div>
 </section>
 
@@ -255,6 +164,36 @@ footer {
 <footer>
   © 2026 TK Clothing — Strength. Discipline. Confidence.
 </footer>
+
+<!-- MINI CART -->
+<div id="cart">
+  <h3>My Cart <span class="close" onclick="toggleCart()">✕</span></h3>
+  <div id="cart-items"></div>
+</div>
+
+<script>
+/* SCROLL ANIMATIONS */
+window.addEventListener('scroll',()=>{
+  const scroll = window.scrollY;
+  document.querySelector('header').classList.toggle('scrolled', scroll>50);
+
+  document.querySelectorAll('.hero, .section, .category, .product, .split').forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){el.classList.add('animate');}
+  });
+});
+
+/* MINI CART LOGIC */
+let cart = [];
+function toggleCart(){document.getElementById('cart').style.display = document.getElementById('cart').style.display==='block'?'none':'block';}
+function addToCart(name, price){
+  cart.push({name, price});
+  const itemsDiv = document.getElementById('cart-items');
+  itemsDiv.innerHTML = '';
+  cart.forEach(i=>{itemsDiv.innerHTML+=`<div class="item">${i.name} <span>£${i.price}</span></div>`;});
+  toggleCart();
+}
+</script>
 
 </body>
 </html>
