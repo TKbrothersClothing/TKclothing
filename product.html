@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product - TK Clothing</title>
+<link rel="stylesheet" href="style.css">
+<script src="products.js"></script>
+<script src="cart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-badge"><img src="assets/logo-line.png" alt="TK Clothing"></span>
+        <span class="brand-copy"><strong>TK Clothing</strong><span>Strength. Discipline. Confidence.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="product.html" class="active">Product</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+      <button class="icon-btn" onclick="toggleCart()">
+        🛒
+        <span class="count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div id="productMount" class="product-page"></div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© TK Clothing 2026</div>
+      <div>Product detail view</div>
+    </div>
+  </footer>
+
+  <aside class="cart" id="cartDrawer">
+    <div class="cart-head">
+      <h2 style="margin:0">Your Cart</h2>
+      <button class="icon-btn" onclick="toggleCart(false)">✕</button>
+    </div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="summary-item"><span>Subtotal</span><strong id="cartTotal">£0</strong></div>
+    <a href="checkout.html" class="btn">Checkout</a>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', renderProductPage);
+  </script>
+</body>
+</html>

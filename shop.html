@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop - TK Clothing</title>
+<link rel="stylesheet" href="style.css">
+<script src="products.js"></script>
+<script src="cart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-badge"><img src="assets/logo-line.png" alt="TK Clothing"></span>
+        <span class="brand-copy"><strong>TK Clothing</strong><span>Strength. Discipline. Confidence.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="product.html">Product</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+      <button class="icon-btn" onclick="toggleCart()">
+        🛒
+        <span class="count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow">Shop</div>
+      <h1 class="section-title">51 product variants across all three logo systems.</h1>
+      <p class="section-copy">Every core clothing item is repeated across TK Signature, TK Performance, and TK Essentials, giving the brand a full product spread from one catalog.</p>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© TK Clothing 2026</div>
+      <div>Shop all collections</div>
+    </div>
+  </footer>
+
+  <aside class="cart" id="cartDrawer">
+    <div class="cart-head">
+      <h2 style="margin:0">Your Cart</h2>
+      <button class="icon-btn" onclick="toggleCart(false)">✕</button>
+    </div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="summary-item"><span>Subtotal</span><strong id="cartTotal">£0</strong></div>
+    <a href="checkout.html" class="btn">Checkout</a>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderProductGrid('productGrid');
+    });
+  </script>
+</body>
+</html>

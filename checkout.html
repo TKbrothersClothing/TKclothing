@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - TK Clothing</title>
+<link rel="stylesheet" href="style.css">
+<script src="products.js"></script>
+<script src="cart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-badge"><img src="assets/logo-line.png" alt="TK Clothing"></span>
+        <span class="brand-copy"><strong>TK Clothing</strong><span>Strength. Discipline. Confidence.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="product.html">Product</a>
+        <a href="checkout.html" class="active">Checkout</a>
+      </nav>
+      <button class="icon-btn" onclick="toggleCart()">
+        🛒
+        <span class="count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="checkout">
+    <div class="panel">
+      <div class="eyebrow">Checkout</div>
+      <h1 class="section-title" style="font-size:54px">Complete your order.</h1>
+      <form class="form-grid">
+        <input placeholder="Full name" required>
+        <input placeholder="Email address" required>
+        <input placeholder="Street address" required>
+        <input placeholder="City" required>
+        <input placeholder="Postcode" required>
+        <select>
+          <option>Standard delivery</option>
+          <option>Express delivery</option>
+        </select>
+        <button type="button" class="btn" onclick="alert('Order completed')">Place order</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <div class="eyebrow">Order summary</div>
+      <h2 style="margin:0 0 10px;font-size:30px">Your basket</h2>
+      <div id="checkoutSummary"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© TK Clothing 2026</div>
+      <div>Secure checkout layout</div>
+    </div>
+  </footer>
+
+  <aside class="cart" id="cartDrawer">
+    <div class="cart-head">
+      <h2 style="margin:0">Your Cart</h2>
+      <button class="icon-btn" onclick="toggleCart(false)">✕</button>
+    </div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="summary-item"><span>Subtotal</span><strong id="cartTotal">£0</strong></div>
+    <a href="checkout.html" class="btn">Checkout</a>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', renderCheckoutSummary);
+  </script>
+</body>
+</html>

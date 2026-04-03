@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TK Clothing</title>
+<link rel="stylesheet" href="style.css">
+<script src="products.js"></script>
+<script src="cart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-badge"><img src="assets/logo-line.png" alt="TK Clothing"></span>
+        <span class="brand-copy"><strong>TK Clothing</strong><span>Strength. Discipline. Confidence.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="product.html">Product</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+      <button class="icon-btn" onclick="toggleCart()">
+        🛒
+        <span class="count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-shell">
+      <div class="hero-copy">
+        <div class="eyebrow">Premium gym + streetwear</div>
+        <h1 class="hero-title">TK CLOTHING</h1>
+        <p class="hero-sub">A premium static store direction built around your banner, your logos, and a sharper blend of Gymshark structure, Represent minimalism, and Nike-scale hero sections.</p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn">Shop collection</a>
+          <a href="#collections" class="btn secondary">View collections</a>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><strong>51</strong><span>Products generated</span></div>
+          <div class="stat"><strong>3</strong><span>Logo-led collections</span></div>
+          <div class="stat"><strong>17</strong><span>Core clothing items</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-grid">
+          <div class="hero-panel">
+            <div>
+              <h3>TK Signature</h3>
+              <p>Luxury black and gold direction for a sharper premium collection.</p>
+            </div>
+            <div class="logo-tile"><img src="assets/logo-gold.jpeg" alt="Gold TK"></div>
+          </div>
+
+          <div class="hero-panel">
+            <div>
+              <h3>TK Performance</h3>
+              <p>Sport-focused logo system for gym-led styles and stronger activewear branding.</p>
+            </div>
+            <div class="logo-tile"><img src="assets/logo-sport.png" alt="Sport TK"></div>
+          </div>
+
+          <div class="hero-panel">
+            <div>
+              <h3>TK Essentials</h3>
+              <p>Minimal linework direction for clean daily basics and quieter product design.</p>
+            </div>
+            <div class="logo-tile"><img src="assets/logo-line.png" alt="Line TK"></div>
+          </div>
+
+          <div class="hero-panel">
+            <div>
+              <h3>Built to upload</h3>
+              <p>Multi-page static build with clean files, products, product page, checkout, and a working cart drawer.</p>
+            </div>
+            <div class="logo-tile"><img src="assets/logo-line.png" alt="TK"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="collections">
+    <div class="wrap">
+      <div class="eyebrow">Collections</div>
+      <h2 class="section-title">Three logo-led lanes across one brand.</h2>
+      <p class="section-copy">Instead of random product repeats, the site now frames each logo as a real collection with its own role in the brand.</p>
+      <div class="collections">
+        <article class="collection-card">
+          <div class="collection-logo"><img src="assets/logo-gold.jpeg" alt="Gold TK"></div>
+          <div>
+            <h3>TK Signature</h3>
+            <p>Luxury direction with the gold script mark for statement pieces and premium drops.</p>
+          </div>
+          <div class="ghost">01</div>
+        </article>
+        <article class="collection-card">
+          <div class="collection-logo"><img src="assets/logo-sport.png" alt="Sport TK"></div>
+          <div>
+            <h3>TK Performance</h3>
+            <p>Gym-focused line with the sharper sport mark for training and active pieces.</p>
+          </div>
+          <div class="ghost">02</div>
+        </article>
+        <article class="collection-card">
+          <div class="collection-logo"><img src="assets/logo-line.png" alt="Line TK"></div>
+          <div>
+            <h3>TK Essentials</h3>
+            <p>Minimal line logo for cleaner, quieter, everyday clothing styles.</p>
+          </div>
+          <div class="ghost">03</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow">Featured</div>
+      <h2 class="section-title">Best sellers and hero products.</h2>
+      <p class="section-copy">A proper homepage needs featured products up front, not just a wall of items.</p>
+      <div class="feature-grid" id="featuredProducts"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap story">
+      <div class="story-panel">
+        <div class="eyebrow">Brand story</div>
+        <h2 class="section-title" style="font-size:54px">Built for the gym. Styled for every day.</h2>
+        <p class="section-copy">TK Clothing blends premium streetwear energy with a gym-ready structure. This site leans into strong visual sections, cleaner spacing, premium black and gold, and a sharper product flow.</p>
+        <a href="shop.html" class="btn">Explore all 51 products</a>
+      </div>
+      <div class="story-visual"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="newsletter">
+        <div>
+          <div class="eyebrow">Newsletter</div>
+          <h3 style="margin:0 0 8px;font-size:30px">Be first for future drops.</h3>
+          <p class="muted" style="margin:0">Join the list for restocks, new collections, and premium drop updates.</p>
+        </div>
+        <form class="newsletter-form">
+          <input placeholder="Email address">
+          <button type="button" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© TK Clothing 2026</div>
+      <div>Black / Gold / White · Signature / Performance / Essentials</div>
+    </div>
+  </footer>
+
+  <aside class="cart" id="cartDrawer">
+    <div class="cart-head">
+      <h2 style="margin:0">Your Cart</h2>
+      <button class="icon-btn" onclick="toggleCart(false)">✕</button>
+    </div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="summary-item"><span>Subtotal</span><strong id="cartTotal">£0</strong></div>
+    <a href="checkout.html" class="btn">Checkout</a>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderProductGrid('featuredProducts', null, 6);
+    });
+  </script>
+</body>
+</html>

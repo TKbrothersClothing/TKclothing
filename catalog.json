@@ -1,0 +1,1139 @@
+[
+  {
+    "slug": "hoodie-signature",
+    "name": "Hoodie",
+    "price": 18,
+    "category": "Streetwear",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Hoodie finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "hoodie-performance",
+    "name": "Hoodie",
+    "price": 18,
+    "category": "Streetwear",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Hoodie finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "hoodie-essentials",
+    "name": "Hoodie",
+    "price": 18,
+    "category": "Streetwear",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Hoodie finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "joggers-signature",
+    "name": "Joggers",
+    "price": 18,
+    "category": "Streetwear",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Joggers finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "joggers-performance",
+    "name": "Joggers",
+    "price": 18,
+    "category": "Streetwear",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Joggers finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "joggers-essentials",
+    "name": "Joggers",
+    "price": 18,
+    "category": "Streetwear",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Joggers finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cargos-signature",
+    "name": "Cargos",
+    "price": 14.99,
+    "category": "Streetwear",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cargos finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cargos-performance",
+    "name": "Cargos",
+    "price": 14.99,
+    "category": "Streetwear",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cargos finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cargos-essentials",
+    "name": "Cargos",
+    "price": 14.99,
+    "category": "Streetwear",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cargos finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tank-top-signature",
+    "name": "Tank Top",
+    "price": 8,
+    "category": "Performance",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tank Top finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tank-top-performance",
+    "name": "Tank Top",
+    "price": 8,
+    "category": "Performance",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tank Top finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tank-top-essentials",
+    "name": "Tank Top",
+    "price": 8,
+    "category": "Performance",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tank Top finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "leggings-signature",
+    "name": "Leggings",
+    "price": 12,
+    "category": "Performance",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Leggings finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "leggings-performance",
+    "name": "Leggings",
+    "price": 12,
+    "category": "Performance",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Leggings finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "leggings-essentials",
+    "name": "Leggings",
+    "price": 12,
+    "category": "Performance",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Leggings finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-bottoms-signature",
+    "name": "Tracksuit Bottoms",
+    "price": 15,
+    "category": "Performance",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Bottoms finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-bottoms-performance",
+    "name": "Tracksuit Bottoms",
+    "price": 15,
+    "category": "Performance",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Bottoms finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-bottoms-essentials",
+    "name": "Tracksuit Bottoms",
+    "price": 15,
+    "category": "Performance",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Bottoms finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-jumpers-signature",
+    "name": "Tracksuit Jumpers",
+    "price": 18,
+    "category": "Performance",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Jumpers finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-jumpers-performance",
+    "name": "Tracksuit Jumpers",
+    "price": 18,
+    "category": "Performance",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Jumpers finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-jumpers-essentials",
+    "name": "Tracksuit Jumpers",
+    "price": 18,
+    "category": "Performance",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Jumpers finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-zip-ups-signature",
+    "name": "Tracksuit Zip Ups",
+    "price": 18,
+    "category": "Performance",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Zip Ups finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-zip-ups-performance",
+    "name": "Tracksuit Zip Ups",
+    "price": 18,
+    "category": "Performance",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Zip Ups finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tracksuit-zip-ups-essentials",
+    "name": "Tracksuit Zip Ups",
+    "price": 18,
+    "category": "Performance",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tracksuit Zip Ups finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "socks-4-pack-signature",
+    "name": "Socks 4 Pack",
+    "price": 6,
+    "category": "Accessories",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Socks 4 Pack finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "socks-4-pack-performance",
+    "name": "Socks 4 Pack",
+    "price": 6,
+    "category": "Accessories",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Socks 4 Pack finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "socks-4-pack-essentials",
+    "name": "Socks 4 Pack",
+    "price": 6,
+    "category": "Accessories",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Socks 4 Pack finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "shorts-signature",
+    "name": "Shorts",
+    "price": 8,
+    "category": "Performance",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Shorts finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "shorts-performance",
+    "name": "Shorts",
+    "price": 8,
+    "category": "Performance",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Shorts finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "shorts-essentials",
+    "name": "Shorts",
+    "price": 8,
+    "category": "Performance",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Graphite",
+      "White"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Shorts finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "boxers-4-pack-signature",
+    "name": "Boxers 4 Pack",
+    "price": 6,
+    "category": "Accessories",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Boxers 4 Pack finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "boxers-4-pack-performance",
+    "name": "Boxers 4 Pack",
+    "price": 6,
+    "category": "Accessories",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Boxers 4 Pack finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "boxers-4-pack-essentials",
+    "name": "Boxers 4 Pack",
+    "price": 6,
+    "category": "Accessories",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Boxers 4 Pack finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tops-signature",
+    "name": "Tops",
+    "price": 9.99,
+    "category": "Streetwear",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tops finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tops-performance",
+    "name": "Tops",
+    "price": 9.99,
+    "category": "Streetwear",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tops finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "tops-essentials",
+    "name": "Tops",
+    "price": 9.99,
+    "category": "Streetwear",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Tops finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "jeans-signature",
+    "name": "Jeans",
+    "price": 15,
+    "category": "Streetwear",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Jeans finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "jeans-performance",
+    "name": "Jeans",
+    "price": 15,
+    "category": "Streetwear",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Jeans finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "jeans-essentials",
+    "name": "Jeans",
+    "price": 15,
+    "category": "Streetwear",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Jeans finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cropped-tops-signature",
+    "name": "Cropped Tops",
+    "price": 9.99,
+    "category": "Streetwear",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cropped Tops finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cropped-tops-performance",
+    "name": "Cropped Tops",
+    "price": 9.99,
+    "category": "Streetwear",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cropped Tops finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cropped-tops-essentials",
+    "name": "Cropped Tops",
+    "price": 9.99,
+    "category": "Streetwear",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cropped Tops finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cropped-jackets-signature",
+    "name": "Cropped Jackets",
+    "price": 12.99,
+    "category": "Streetwear",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cropped Jackets finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cropped-jackets-performance",
+    "name": "Cropped Jackets",
+    "price": 12.99,
+    "category": "Streetwear",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cropped Jackets finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "cropped-jackets-essentials",
+    "name": "Cropped Jackets",
+    "price": 12.99,
+    "category": "Streetwear",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Stone"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Cropped Jackets finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "hats-signature",
+    "name": "Hats",
+    "price": 12,
+    "category": "Accessories",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Hats finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "hats-performance",
+    "name": "Hats",
+    "price": 12,
+    "category": "Accessories",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Hats finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "hats-essentials",
+    "name": "Hats",
+    "price": 12,
+    "category": "Accessories",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Hats finished with the Line TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "beanies-signature",
+    "name": "Beanies",
+    "price": 12,
+    "category": "Accessories",
+    "logoKey": "signature",
+    "logoLabel": "Gold TK",
+    "collection": "TK Signature",
+    "logoFile": "assets/logo-gold.jpeg",
+    "accent": "gold",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Beanies finished with the Gold TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "beanies-performance",
+    "name": "Beanies",
+    "price": 12,
+    "category": "Accessories",
+    "logoKey": "performance",
+    "logoLabel": "Sport TK",
+    "collection": "TK Performance",
+    "logoFile": "assets/logo-sport.png",
+    "accent": "silver",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Beanies finished with the Sport TK mark for a clean premium TK Clothing look."
+  },
+  {
+    "slug": "beanies-essentials",
+    "name": "Beanies",
+    "price": 12,
+    "category": "Accessories",
+    "logoKey": "essentials",
+    "logoLabel": "Line TK",
+    "collection": "TK Essentials",
+    "logoFile": "assets/logo-line.png",
+    "accent": "white",
+    "colors": [
+      "Black",
+      "Grey",
+      "Cream"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "description": "Beanies finished with the Line TK mark for a clean premium TK Clothing look."
+  }
+]
