@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>TK Clothing</title>
 
 <style>
@@ -12,8 +10,8 @@
 body{
 margin:0;
 font-family:Arial,Helvetica,sans-serif;
-background:#0b0b0b;
-color:white;
+background:#0a0a0a;
+color:#fff;
 }
 
 header{
@@ -25,14 +23,6 @@ background:#000;
 border-bottom:1px solid #222;
 position:sticky;
 top:0;
-z-index:100;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-weight:bold;
 }
 
 .logo img{
@@ -41,9 +31,8 @@ height:40px;
 
 nav a{
 margin:0 15px;
-text-decoration:none;
 color:#bbb;
-font-size:14px;
+text-decoration:none;
 }
 
 nav a:hover{
@@ -52,24 +41,24 @@ color:white;
 
 .hero{
 height:85vh;
+background-size:cover;
+background-position:center;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:url("images/banner.jpg") center/cover no-repeat;
 }
 
 .hero h1{
-font-size:70px;
+font-size:60px;
 background:rgba(0,0,0,0.6);
-padding:25px 50px;
-letter-spacing:3px;
+padding:20px 40px;
 }
 
 .section{
 max-width:1200px;
 margin:auto;
-padding:90px 20px;
+padding:80px 20px;
 }
 
 h2{
@@ -77,45 +66,23 @@ font-size:40px;
 margin-bottom:40px;
 }
 
-.logo-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:40px;
+gap:25px;
+}
+
+.card{
+background:#111;
+padding:25px;
+border-radius:10px;
+border:1px solid #222;
 text-align:center;
 }
 
-.logo-card{
-background:#111;
-padding:40px;
-border-radius:10px;
-border:1px solid #222;
-}
-
-.logo-card img{
-max-width:180px;
-}
-
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
-}
-
-.feature{
-background:#111;
-border-radius:10px;
-border:1px solid #222;
-padding:20px;
-}
-
-.feature img{
-width:100%;
-}
-
-.shop-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
+.card img{
+max-width:200px;
+margin-bottom:10px;
 }
 
 .product{
@@ -123,35 +90,37 @@ background:#111;
 padding:25px;
 border-radius:10px;
 border:1px solid #222;
+text-align:center;
 }
 
-.product h3{
-margin-top:10px;
+.product-logo{
+height:60px;
+margin:10px auto;
 }
 
 .price{
-font-weight:bold;
 margin:10px 0;
+font-weight:bold;
 }
 
 button{
 padding:10px 20px;
 border:none;
-cursor:pointer;
 background:#d4af37;
 font-weight:bold;
+cursor:pointer;
 }
 
 button:hover{
-background:#f0d678;
+background:#f1cf5d;
 }
 
 .cart{
 position:fixed;
 right:0;
 top:0;
-height:100vh;
 width:320px;
+height:100vh;
 background:#111;
 border-left:1px solid #222;
 padding:20px;
@@ -165,9 +134,8 @@ transform:translateX(0);
 }
 
 .cart-item{
-margin-bottom:15px;
 border-bottom:1px solid #222;
-padding-bottom:10px;
+padding:10px 0;
 }
 
 footer{
@@ -180,14 +148,12 @@ color:#888;
 
 @media(max-width:900px){
 
-.hero h1{
-font-size:40px;
+.grid{
+grid-template-columns:1fr;
 }
 
-.logo-grid,
-.feature-grid,
-.shop-grid{
-grid-template-columns:1fr;
+.hero h1{
+font-size:40px;
 }
 
 }
@@ -200,16 +166,13 @@ grid-template-columns:1fr;
 <header>
 
 <div class="logo">
-<img src="images/logo1.png">
-<span>TK Clothing</span>
+<img src="data:image/jpeg;base64,REPLACE_LOGO1">
 </div>
 
 <nav>
 <a href="#home">Home</a>
 <a href="#logos">Logos</a>
-<a href="#featured">Featured</a>
 <a href="#shop">Shop</a>
-<a href="#about">About</a>
 <a href="#checkout">Checkout</a>
 </nav>
 
@@ -218,63 +181,33 @@ grid-template-columns:1fr;
 </header>
 
 
-<section class="hero" id="home">
+<section class="hero" id="home" style="background-image:url('data:image/jpeg;base64,REPLACE_BANNER')">
+
 <h1>TK CLOTHING</h1>
+
 </section>
 
 
 
 <section class="section" id="logos">
 
-<h2>Brand Identity</h2>
+<h2>Your Logos</h2>
 
-<div class="logo-grid">
+<div class="grid">
 
-<div class="logo-card">
-<img src="images/logo1.png">
-<p>Primary Luxury Mark</p>
+<div class="card">
+<img src="data:image/jpeg;base64,REPLACE_LOGO1">
+<p>Luxury Logo</p>
 </div>
 
-<div class="logo-card">
-<img src="images/logo2.png">
-<p>Minimal Identity Mark</p>
+<div class="card">
+<img src="data:image/png;base64,REPLACE_LOGO2">
+<p>Minimal Logo</p>
 </div>
 
-<div class="logo-card">
-<img src="images/logo3.png">
-<p>Performance Identity Mark</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section" id="featured">
-
-<h2>Featured Pieces</h2>
-
-<div class="feature-grid">
-
-<div class="feature">
-<h3>Signature Hoodie</h3>
-<p>Premium cotton hoodie built for training and everyday wear.</p>
-</div>
-
-<div class="feature">
-<h3>Training Joggers</h3>
-<p>Performance joggers designed for comfort and movement.</p>
-</div>
-
-<div class="feature">
-<h3>Street Cargo Pants</h3>
-<p>Utility cargos blending gym wear with streetwear style.</p>
-</div>
-
-<div class="feature">
-<h3>Performance Tank</h3>
-<p>Lightweight tank built for high intensity workouts.</p>
+<div class="card">
+<img src="data:image/png;base64,REPLACE_LOGO3">
+<p>Performance Logo</p>
 </div>
 
 </div>
@@ -287,80 +220,7 @@ grid-template-columns:1fr;
 
 <h2>Shop</h2>
 
-<div class="shop-grid">
-
-<div class="product">
-<h3>TK Hoodie</h3>
-<div class="price">£18</div>
-<button onclick="addToCart('TK Hoodie',18)">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Joggers</h3>
-<div class="price">£18</div>
-<button onclick="addToCart('Joggers',18)">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Cargos</h3>
-<div class="price">£14.99</div>
-<button onclick="addToCart('Cargos',14.99)">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Tank Top</h3>
-<div class="price">£8</div>
-<button onclick="addToCart('Tank Top',8)">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Leggings</h3>
-<div class="price">£12</div>
-<button onclick="addToCart('Leggings',12)">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Tracksuit Set</h3>
-<div class="price">£18</div>
-<button onclick="addToCart('Tracksuit Set',18)">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Training Shorts</h3>
-<div class="price">£8</div>
-<button onclick="addToCart('Shorts',8)">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Beanie</h3>
-<div class="price">£12</div>
-<button onclick="addToCart('Beanie',12)">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Hat</h3>
-<div class="price">£12</div>
-<button onclick="addToCart('Hat',12)">Add to Cart</button>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section" id="about">
-
-<h2>About TK Clothing</h2>
-
-<p>
-
-TK Clothing is built around strength, discipline, and confidence.  
-The brand combines gym performance apparel with modern streetwear design.
-
-Every piece is designed to move between training and everyday life without losing style.
-
-</p>
+<div class="grid" id="shopGrid"></div>
 
 </section>
 
@@ -393,16 +253,57 @@ Every piece is designed to move between training and everyday life without losin
 
 
 <footer>
-
 TK Clothing © 2026
-
 </footer>
 
 
 
 <script>
 
+const logo1 = "data:image/jpeg;base64,REPLACE_LOGO1"
+const logo2 = "data:image/png;base64,REPLACE_LOGO2"
+const logo3 = "data:image/png;base64,REPLACE_LOGO3"
+
+const products = [
+
+{name:"TK Hoodie",price:18,logo:logo3},
+{name:"Joggers",price:18,logo:logo3},
+{name:"Cargos",price:14.99,logo:logo3},
+{name:"Tank Top",price:8,logo:logo3},
+{name:"Leggings",price:12,logo:logo3},
+{name:"Tracksuit",price:18,logo:logo3}
+
+]
+
 let cart=[]
+
+function renderProducts(){
+
+const grid=document.getElementById("shopGrid")
+
+products.forEach(p=>{
+
+grid.innerHTML+=`
+
+<div class="product">
+
+<img class="product-logo" src="${p.logo}">
+
+<h3>${p.name}</h3>
+
+<div class="price">£${p.price}</div>
+
+<button onclick="addToCart('${p.name}',${p.price})">
+Add to Cart
+</button>
+
+</div>
+
+`
+
+})
+
+}
 
 function toggleCart(){
 document.getElementById("cart").classList.toggle("open")
@@ -426,21 +327,12 @@ checkout.innerHTML=""
 
 let total=0
 
-cart.forEach((item,i)=>{
+cart.forEach(item=>{
 
 total+=item.price
 
-items.innerHTML+=`
-<div class="cart-item">
-${item.name} - £${item.price}
-</div>
-`
-
-checkout.innerHTML+=`
-<div>
-${item.name} - £${item.price}
-</div>
-`
+items.innerHTML+=`<div class="cart-item">${item.name} - £${item.price}</div>`
+checkout.innerHTML+=`<div>${item.name} - £${item.price}</div>`
 
 })
 
@@ -452,19 +344,17 @@ document.getElementById("total").innerText="Total: £"+total.toFixed(2)
 function completeOrder(){
 
 if(cart.length===0){
-
-alert("Cart is empty")
+alert("Cart empty")
 return
-
 }
 
 alert("Order completed!")
-
 cart=[]
-
 renderCart()
 
 }
+
+renderProducts()
 
 </script>
 
