@@ -47,20 +47,6 @@ nav a:hover {color:gold;}
 .section h2 {font-size:48px; margin-bottom:40px; opacity:0; transform:translateY(30px); transition:1s;}
 .section.animate h2 {opacity:1; transform:translateY(0);}
 
-/* CATEGORY GRID */
-.categories {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px;}
-.category {
-  height:300px; background-size:cover; background-position:center; position:relative; cursor:pointer; overflow:hidden;
-  transition:0.5s; opacity:0; transform:translateY(30px);
-}
-.category::after {
-  content:""; position:absolute; inset:0; background:rgba(0,0,0,0.4); transition:0.5s;
-}
-.category h3 {position:absolute; bottom:20px; left:20px; z-index:2; font-size:24px;}
-.category:hover::after {background:rgba(0,0,0,0.1);}
-.category:hover {transform:scale(1.05);}
-.category.animate {opacity:1; transform:translateY(0);}
-
 /* PRODUCTS */
 .products {display:flex; gap:30px; flex-wrap:wrap; justify-content:center;}
 .product {
@@ -100,55 +86,216 @@ footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
   <h1>TK</h1>
   <nav>
     <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">Collections</a>
-    <a href="#">About</a>
+    <a href="#shop">Shop</a>
+    <a href="#collections">Collections</a>
+    <a href="#about">About</a>
   </nav>
 </header>
 
 <section class="hero">
   <h2>TRAIN HARD. LIVE SHARP.</h2>
   <p>Premium gym & streetwear built for performance and lifestyle.</p>
-  <button class="btn" onclick="toggleCart()">VIEW CART</button>
+  <button class="btn" onclick="scrollToSection('shop')">SHOP NOW</button>
 </section>
 
-<section class="section">
+<!-- COLLECTION CATEGORIES -->
+<section id="collections" class="section">
   <h2>Collections</h2>
-  <div class="categories">
-    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438')">
-      <h3>Gym Wear</h3>
-    </div>
-    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38')">
-      <h3>Streetwear</h3>
-    </div>
-    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c')">
-      <h3>Accessories</h3>
-    </div>
+  <div class="products">
+    <div class="product" onclick="scrollToSection('hoodies')"><h4>Hoodies & Zipups</h4></div>
+    <div class="product" onclick="scrollToSection('joggers')"><h4>Joggers</h4></div>
+    <div class="product" onclick="scrollToSection('cargos')"><h4>Cargos</h4></div>
+    <div class="product" onclick="scrollToSection('tank-tops')"><h4>Tank Tops</h4></div>
+    <div class="product" onclick="scrollToSection('leggings')"><h4>Leggings</h4></div>
+    <div class="product" onclick="scrollToSection('tracksuit-bottoms')"><h4>Tracksuit Bottoms</h4></div>
+    <div class="product" onclick="scrollToSection('cropped')"><h4>Cropped Jackets/Hoodies/Tops</h4></div>
+    <div class="product" onclick="scrollToSection('tops')"><h4>Tops</h4></div>
+    <div class="product" onclick="scrollToSection('shorts')"><h4>Shorts</h4></div>
+    <div class="product" onclick="scrollToSection('jeans')"><h4>Jeans</h4></div>
+    <div class="product" onclick="scrollToSection('boxers')"><h4>Boxers Pack of 4</h4></div>
+    <div class="product" onclick="scrollToSection('socks')"><h4>Socks 4 Pack</h4></div>
+    <div class="product" onclick="scrollToSection('hats')"><h4>Hats & Beanies</h4></div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Featured Drops</h2>
-  <div class="products">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
-      <h4>TK Black Hoodie</h4>
-      <p>£40</p>
-      <button class="btn" onclick="addToCart('TK Black Hoodie',40)">Add</button>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
-      <h4>TK White Tee</h4>
-      <p>£25</p>
-      <button class="btn" onclick="addToCart('TK White Tee',25)">Add</button>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
-      <h4>TK Cap</h4>
-      <p>£20</p>
-      <button class="btn" onclick="addToCart('TK Cap',20)">Add</button>
-    </div>
+<!-- PRODUCTS SECTIONS -->
+<section id="shop" class="section">
+
+<!-- HOODIES -->
+<div id="hoodies" class="section">
+<h2>Hoodies & Zipups — £18</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
+    <h4>Black Hoodie</h4>
+    <p>£18</p>
+    <button class="btn" onclick="addToCart('Black Hoodie',18)">Add</button>
   </div>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
+    <h4>Grey Zipup</h4>
+    <p>£18</p>
+    <button class="btn" onclick="addToCart('Grey Zipup',18)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- JOGGERS -->
+<div id="joggers" class="section">
+<h2>Joggers — £18</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Black Joggers</h4>
+    <p>£18</p>
+    <button class="btn" onclick="addToCart('Black Joggers',18)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- CARGOS -->
+<div id="cargos" class="section">
+<h2>Cargos — £14.99</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Olive Cargos</h4>
+    <p>£14.99</p>
+    <button class="btn" onclick="addToCart('Olive Cargos',14.99)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- TANK TOPS -->
+<div id="tank-tops" class="section">
+<h2>Tank Tops — £8</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>White Tank</h4>
+    <p>£8</p>
+    <button class="btn" onclick="addToCart('White Tank',8)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- LEGGINGS -->
+<div id="leggings" class="section">
+<h2>Leggings — £12</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Black Leggings</h4>
+    <p>£12</p>
+    <button class="btn" onclick="addToCart('Black Leggings',12)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- TRACKSUIT BOTTOMS -->
+<div id="tracksuit-bottoms" class="section">
+<h2>Tracksuit Bottoms — £15</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Grey Tracksuit Bottoms</h4>
+    <p>£15</p>
+    <button class="btn" onclick="addToCart('Grey Tracksuit Bottoms',15)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- CROPPED JACKETS / HOODIES / TOPS -->
+<div id="cropped" class="section">
+<h2>Cropped Jackets / Hoodies / Tops — £12.99</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Cropped Hoodie</h4>
+    <p>£12.99</p>
+    <button class="btn" onclick="addToCart('Cropped Hoodie',12.99)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- TOPS -->
+<div id="tops" class="section">
+<h2>Tops — £9.99</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Black Tee</h4>
+    <p>£9.99</p>
+    <button class="btn" onclick="addToCart('Black Tee',9.99)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- SHORTS -->
+<div id="shorts" class="section">
+<h2>Shorts — £8</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Grey Shorts</h4>
+    <p>£8</p>
+    <button class="btn" onclick="addToCart('Grey Shorts',8)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- JEANS -->
+<div id="jeans" class="section">
+<h2>Jeans — £15</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Blue Jeans</h4>
+    <p>£15</p>
+    <button class="btn" onclick="addToCart('Blue Jeans',15)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- BOXERS -->
+<div id="boxers" class="section">
+<h2>Boxers Pack of 4 — £8</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Boxers 4 Pack</h4>
+    <p>£8</p>
+    <button class="btn" onclick="addToCart('Boxers 4 Pack',8)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- SOCKS -->
+<div id="socks" class="section">
+<h2>Socks 4 Pack — £6</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Socks 4 Pack</h4>
+    <p>£6</p>
+    <button class="btn" onclick="addToCart('Socks 4 Pack',6)">Add</button>
+  </div>
+</div>
+</div>
+
+<!-- HATS & BEANIES -->
+<div id="hats" class="section">
+<h2>Hats & Beanies — £12</h2>
+<div class="products">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
+    <h4>Black Cap</h4>
+    <p>£12</p>
+    <button class="btn" onclick="addToCart('Black Cap',12)">Add</button>
+  </div>
+</div>
+</div>
+
 </section>
 
 <section class="split">
@@ -177,7 +324,7 @@ window.addEventListener('scroll',()=>{
   const scroll = window.scrollY;
   document.querySelector('header').classList.toggle('scrolled', scroll>50);
 
-  document.querySelectorAll('.hero, .section, .category, .product, .split').forEach(el=>{
+  document.querySelectorAll('.hero, .section, .product, .split').forEach(el=>{
     const top = el.getBoundingClientRect().top;
     if(top < window.innerHeight - 100){el.classList.add('animate');}
   });
@@ -192,6 +339,11 @@ function addToCart(name, price){
   itemsDiv.innerHTML = '';
   cart.forEach(i=>{itemsDiv.innerHTML+=`<div class="item">${i.name} <span>£${i.price}</span></div>`;});
   toggleCart();
+}
+
+/* SCROLL TO SECTION */
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 </script>
 
