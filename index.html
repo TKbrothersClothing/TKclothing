@@ -3,61 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TK Clothing</title>
+<title>TK Clothing — Full Variants</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* RESET + BASE */
-* {margin:0; padding:0; box-sizing:border-box; font-family: 'Montserrat', sans-serif;}
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif;}
 body {background:#0a0a0a; color:white; overflow-x:hidden;}
 
 /* NAVBAR */
-header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 60px;
-  position:fixed; width:100%; top:0;
-  background:rgba(0,0,0,0.7); backdrop-filter:blur(10px); z-index:100;
-  transition:0.3s;
-}
+header {display:flex; justify-content:space-between; align-items:center; padding:20px 60px; position:fixed; width:100%; top:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(10px); z-index:100; transition:0.3s;}
 header.scrolled {background:rgba(0,0,0,0.9);}
 header h1 {color:gold; letter-spacing:3px; font-size:28px;}
-nav a {
-  margin-left:30px; text-decoration:none; color:#ccc; transition:0.3s; font-weight:500;
-}
+nav a {margin-left:30px; text-decoration:none; color:#ccc; transition:0.3s; font-weight:500;}
 nav a:hover {color:gold;}
 
 /* HERO */
-.hero {
-  height:100vh;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.5), #0a0a0a),
-             url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab');
-  background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center;
-  padding-left:60px; position:relative; overflow:hidden;
-}
-.hero h2 {font-size:70px; max-width:700px; opacity:0; transform:translateY(30px); transition:1s;}
-.hero p {margin:20px 0; color:#aaa; font-size:18px; opacity:0; transform:translateY(30px); transition:1s;}
-.hero .btn {padding:14px 30px; background:gold; color:black; border:none; font-weight:bold; cursor:pointer; transition:0.3s; opacity:0; transform:translateY(30px);}
-.hero .btn:hover {transform:scale(1.05);}
+.hero {height:100vh; position:relative; display:flex; flex-direction:column; justify-content:center; padding-left:60px; overflow:hidden;}
+.hero video {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;}
+.hero h2, .hero p, .hero .btn {opacity:0; transform:translateY(30px); transition:1s;}
 .hero.animate h2, .hero.animate p, .hero.animate .btn {opacity:1; transform:translateY(0);}
+.hero h2 {font-size:70px; max-width:700px;}
+.hero p {margin:20px 0; color:#aaa; font-size:18px;}
+.hero .btn {padding:14px 30px; background:gold; color:black; border:none; font-weight:bold; cursor:pointer; transition:0.3s;}
+.hero .btn:hover {transform:scale(1.05);}
 
 /* SECTION */
 .section {padding:100px 60px;}
 .section h2 {font-size:48px; margin-bottom:40px; opacity:0; transform:translateY(30px); transition:1s;}
 .section.animate h2 {opacity:1; transform:translateY(0);}
 
+/* CATEGORY TABS */
+.tabs {display:flex; gap:15px; margin-bottom:30px; flex-wrap:wrap;}
+.tab {padding:10px 20px; background:#111; border-radius:20px; cursor:pointer; transition:0.3s;}
+.tab.active {background:gold; color:black;}
+.tab:hover {background:gold; color:black;}
+
 /* PRODUCTS */
 .products {display:flex; gap:30px; flex-wrap:wrap; justify-content:center;}
-.product {
-  width:260px; background:#111; padding:15px; border-radius:10px; transition:0.3s; opacity:0; transform:translateY(30px);
-}
+.product {width:260px; background:#111; padding:15px; border-radius:10px; transition:0.3s; opacity:0; transform:translateY(30px);}
 .product:hover {transform:translateY(-8px) scale(1.03);}
 .product img {width:100%; border-radius:10px;}
 .product h4 {margin-top:10px;}
 .product p {color:#aaa;}
 .product.animate {opacity:1; transform:translateY(0);}
-.product .btn {margin-top:10px;}
+.product .btn {margin-top:10px; position:sticky; bottom:10px; width:100%; background:gold; color:black; border:none; cursor:pointer;}
+.product select {margin-top:10px; width:100%; padding:5px; border-radius:5px; border:none; background:#222; color:white;}
 
 /* SPLIT SECTION */
 .split {display:flex; flex-wrap:wrap;}
@@ -69,17 +60,15 @@ nav a:hover {color:gold;}
 footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
 
 /* MINI CART */
-#cart {
-  position:fixed; right:20px; top:80px; width:300px; background:#111; border-radius:10px; padding:20px; display:none;
-  box-shadow:0 0 20px rgba(0,0,0,0.7);
-  z-index:200;
-}
+#cart {position:fixed; right:20px; top:80px; width:300px; background:#111; border-radius:10px; padding:20px; display:none; box-shadow:0 0 20px rgba(0,0,0,0.7); z-index:200;}
 #cart h3 {margin-bottom:15px;}
 #cart .item {display:flex; justify-content:space-between; margin-bottom:10px;}
 #cart .close {cursor:pointer; color:gold; float:right;}
+
+/* MOBILE SWIPE */
+@media (max-width:768px){.products {overflow-x:auto; flex-wrap:nowrap; scroll-snap-type:x mandatory;}.product {flex:0 0 auto; scroll-snap-align:center;}}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -93,209 +82,18 @@ footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
 </header>
 
 <section class="hero">
+  <video autoplay muted loop>
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  </video>
   <h2>TRAIN HARD. LIVE SHARP.</h2>
   <p>Premium gym & streetwear built for performance and lifestyle.</p>
   <button class="btn" onclick="scrollToSection('shop')">SHOP NOW</button>
 </section>
 
-<!-- COLLECTION CATEGORIES -->
 <section id="collections" class="section">
   <h2>Collections</h2>
-  <div class="products">
-    <div class="product" onclick="scrollToSection('hoodies')"><h4>Hoodies & Zipups</h4></div>
-    <div class="product" onclick="scrollToSection('joggers')"><h4>Joggers</h4></div>
-    <div class="product" onclick="scrollToSection('cargos')"><h4>Cargos</h4></div>
-    <div class="product" onclick="scrollToSection('tank-tops')"><h4>Tank Tops</h4></div>
-    <div class="product" onclick="scrollToSection('leggings')"><h4>Leggings</h4></div>
-    <div class="product" onclick="scrollToSection('tracksuit-bottoms')"><h4>Tracksuit Bottoms</h4></div>
-    <div class="product" onclick="scrollToSection('cropped')"><h4>Cropped Jackets/Hoodies/Tops</h4></div>
-    <div class="product" onclick="scrollToSection('tops')"><h4>Tops</h4></div>
-    <div class="product" onclick="scrollToSection('shorts')"><h4>Shorts</h4></div>
-    <div class="product" onclick="scrollToSection('jeans')"><h4>Jeans</h4></div>
-    <div class="product" onclick="scrollToSection('boxers')"><h4>Boxers Pack of 4</h4></div>
-    <div class="product" onclick="scrollToSection('socks')"><h4>Socks 4 Pack</h4></div>
-    <div class="product" onclick="scrollToSection('hats')"><h4>Hats & Beanies</h4></div>
-  </div>
-</section>
-
-<!-- PRODUCTS SECTIONS -->
-<section id="shop" class="section">
-
-<!-- HOODIES -->
-<div id="hoodies" class="section">
-<h2>Hoodies & Zipups — £18</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
-    <h4>Black Hoodie</h4>
-    <p>£18</p>
-    <button class="btn" onclick="addToCart('Black Hoodie',18)">Add</button>
-  </div>
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
-    <h4>Grey Zipup</h4>
-    <p>£18</p>
-    <button class="btn" onclick="addToCart('Grey Zipup',18)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- JOGGERS -->
-<div id="joggers" class="section">
-<h2>Joggers — £18</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Black Joggers</h4>
-    <p>£18</p>
-    <button class="btn" onclick="addToCart('Black Joggers',18)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- CARGOS -->
-<div id="cargos" class="section">
-<h2>Cargos — £14.99</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Olive Cargos</h4>
-    <p>£14.99</p>
-    <button class="btn" onclick="addToCart('Olive Cargos',14.99)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- TANK TOPS -->
-<div id="tank-tops" class="section">
-<h2>Tank Tops — £8</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>White Tank</h4>
-    <p>£8</p>
-    <button class="btn" onclick="addToCart('White Tank',8)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- LEGGINGS -->
-<div id="leggings" class="section">
-<h2>Leggings — £12</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Black Leggings</h4>
-    <p>£12</p>
-    <button class="btn" onclick="addToCart('Black Leggings',12)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- TRACKSUIT BOTTOMS -->
-<div id="tracksuit-bottoms" class="section">
-<h2>Tracksuit Bottoms — £15</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Grey Tracksuit Bottoms</h4>
-    <p>£15</p>
-    <button class="btn" onclick="addToCart('Grey Tracksuit Bottoms',15)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- CROPPED JACKETS / HOODIES / TOPS -->
-<div id="cropped" class="section">
-<h2>Cropped Jackets / Hoodies / Tops — £12.99</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Cropped Hoodie</h4>
-    <p>£12.99</p>
-    <button class="btn" onclick="addToCart('Cropped Hoodie',12.99)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- TOPS -->
-<div id="tops" class="section">
-<h2>Tops — £9.99</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Black Tee</h4>
-    <p>£9.99</p>
-    <button class="btn" onclick="addToCart('Black Tee',9.99)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- SHORTS -->
-<div id="shorts" class="section">
-<h2>Shorts — £8</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Grey Shorts</h4>
-    <p>£8</p>
-    <button class="btn" onclick="addToCart('Grey Shorts',8)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- JEANS -->
-<div id="jeans" class="section">
-<h2>Jeans — £15</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Blue Jeans</h4>
-    <p>£15</p>
-    <button class="btn" onclick="addToCart('Blue Jeans',15)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- BOXERS -->
-<div id="boxers" class="section">
-<h2>Boxers Pack of 4 — £8</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Boxers 4 Pack</h4>
-    <p>£8</p>
-    <button class="btn" onclick="addToCart('Boxers 4 Pack',8)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- SOCKS -->
-<div id="socks" class="section">
-<h2>Socks 4 Pack — £6</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Socks 4 Pack</h4>
-    <p>£6</p>
-    <button class="btn" onclick="addToCart('Socks 4 Pack',6)">Add</button>
-  </div>
-</div>
-</div>
-
-<!-- HATS & BEANIES -->
-<div id="hats" class="section">
-<h2>Hats & Beanies — £12</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1593032465173-0d0f85879292">
-    <h4>Black Cap</h4>
-    <p>£12</p>
-    <button class="btn" onclick="addToCart('Black Cap',12)">Add</button>
-  </div>
-</div>
-</div>
-
+  <div class="tabs" id="tabs"></div>
+  <div class="products" id="tab-products"></div>
 </section>
 
 <section class="split">
@@ -312,7 +110,6 @@ footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
   © 2026 TK Clothing — Strength. Discipline. Confidence.
 </footer>
 
-<!-- MINI CART -->
 <div id="cart">
   <h3>My Cart <span class="close" onclick="toggleCart()">✕</span></h3>
   <div id="cart-items"></div>
@@ -323,28 +120,49 @@ footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
 window.addEventListener('scroll',()=>{
   const scroll = window.scrollY;
   document.querySelector('header').classList.toggle('scrolled', scroll>50);
-
   document.querySelectorAll('.hero, .section, .product, .split').forEach(el=>{
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){el.classList.add('animate');}
+    if(el.getBoundingClientRect().top < window.innerHeight -100){el.classList.add('animate');}
   });
 });
 
-/* MINI CART LOGIC */
-let cart = [];
-function toggleCart(){document.getElementById('cart').style.display = document.getElementById('cart').style.display==='block'?'none':'block';}
-function addToCart(name, price){
-  cart.push({name, price});
-  const itemsDiv = document.getElementById('cart-items');
-  itemsDiv.innerHTML = '';
-  cart.forEach(i=>{itemsDiv.innerHTML+=`<div class="item">${i.name} <span>£${i.price}</span></div>`;});
-  toggleCart();
+/* MINI CART */
+let cart=[];
+function toggleCart(){document.getElementById('cart').style.display=document.getElementById('cart').style.display==='block'?'none':'block';}
+function addToCart(name,price,color,logo){cart.push({name,price,color,logo}); let itemsDiv=document.getElementById('cart-items'); itemsDiv.innerHTML=''; cart.forEach(i=>{itemsDiv.innerHTML+=`<div class="item">${i.name} (${i.color}, ${i.logo}) <span>£${i.price}</span></div>`;}); toggleCart();}
+
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+
+/* CATEGORY + VARIANTS */
+const colors=['Black','Grey','White','Olive'];
+const logos=['Logo 1','Logo 2','Logo 3'];
+
+const categories = {
+  'Hoodies & Zipups':18,'Joggers':18,'Cargos':14.99,'Tank Tops':8,'Leggings':12,'Tracksuit Bottoms':15,'Cropped Jackets/Hoodies/Tops':12.99,'Tops':9.99,'Shorts':8,'Jeans':15,'Boxers Pack of 4':8,'Socks 4 Pack':6,'Hats & Beanies':12
+};
+
+const tabsDiv=document.getElementById('tabs');
+const productsDiv=document.getElementById('tab-products');
+
+Object.keys(categories).forEach((cat,index)=>{
+  let tab=document.createElement('div'); tab.className='tab'; if(index===0) tab.classList.add('active');
+  tab.innerText=cat;
+  tab.onclick=()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); tab.classList.add('active'); showCategory(cat);};
+  tabsDiv.appendChild(tab);
+});
+
+function showCategory(cat){productsDiv.innerHTML='';
+  logos.forEach(logo=>{
+    colors.forEach(color=>{
+      let div=document.createElement('div'); div.className='product animate';
+      div.innerHTML=`<img src='https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf'/><h4>${cat}</h4><p>£${categories[cat]}</p><select>`+
+        colors.map(c=>`<option value='${c}' ${c===color?'selected':''}>${c}</option>`).join('')+
+        `</select><p>${logo}</p><button class='btn' onclick='addToCart("${cat}",${categories[cat]},this.previousElementSibling.value,"${logo}")'>Add</button>`;
+      productsDiv.appendChild(div);
+    });
+  });
 }
 
-/* SCROLL TO SECTION */
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
+showCategory(Object.keys(categories)[0]);
 </script>
 
 </body>
