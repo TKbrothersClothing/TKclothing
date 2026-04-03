@@ -1,240 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TK Clothing - Insane Level</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TK Clothing - Mega Site</title>
+  <style>
+    /* ===================== GENERAL ===================== */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    body { background:#0a0a0a; color:white; overflow-x:hidden; }
 
-<style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-body { background:#0a0a0a; color:white; overflow-x:hidden; }
+    /* ===================== HEADER ===================== */
+    header { display:flex; justify-content:space-between; padding:20px 60px; position:fixed; width:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); z-index:100; }
+    header h1 { color:gold; letter-spacing:3px; cursor:pointer; }
+    nav a { margin-left:30px; text-decoration:none; color:#ccc; transition:.3s; }
+    nav a:hover { color:gold; }
 
-/* HEADER */
-header { display:flex; justify-content:space-between; padding:20px 60px; position:fixed; width:100%; background:rgba(0,0,0,0.7); backdrop-filter:blur(10px); z-index:100; transition:0.3s; }
-header h1 { color:gold; letter-spacing:3px; cursor:pointer; }
-nav a { margin-left:30px; text-decoration:none; color:#ccc; transition:0.3s; }
-nav a:hover { color:gold; }
+    /* ===================== HERO ===================== */
+    .hero { height:90vh; background:linear-gradient(to bottom, rgba(0,0,0,0.6), #0a0a0a), url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab'); background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center; padding-left:60px; position:relative; }
+    .hero h2 { font-size:70px; margin-bottom:20px; animation:fadeInDown 1s ease; }
+    .hero p { color:#aaa; font-size:22px; margin-bottom:30px; max-width:600px; animation:fadeInUp 1s ease; }
+    .btn { padding:14px 30px; background:gold; color:black; border:none; font-weight:bold; cursor:pointer; transition:.3s; }
+    .btn:hover { transform:scale(1.05); }
 
-/* HERO */
-.hero { height:100vh; background:linear-gradient(to bottom, rgba(0,0,0,0.6), #0a0a0a), url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab'); background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center; padding-left:60px; position:relative; overflow:hidden; }
-.hero h2, .hero p { opacity:0; transform:translateY(20px); animation:fadeInUp 1s ease forwards; }
-.hero p { animation-delay:0.5s; color:#aaa; font-size:18px; }
-.hero h2 { font-size:70px; animation-delay:0.2s; }
-.btn { padding:14px 30px; background:gold; color:black; border:none; font-weight:bold; cursor:pointer; transition:0.3s; margin-top:20px; }
-.btn:hover { transform:scale(1.05); }
+    @keyframes fadeInDown { from{opacity:0; transform:translateY(-50px);} to{opacity:1; transform:translateY(0);} }
+    @keyframes fadeInUp { from{opacity:0; transform:translateY(50px);} to{opacity:1; transform:translateY(0);} }
 
-@keyframes fadeInUp { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
+    /* ===================== SECTION ===================== */
+    .section { padding:100px 60px; }
+    .welcome { display:flex; flex-wrap:wrap; gap:40px; align-items:center; }
+    .welcome img { flex:1; min-width:300px; border-radius:10px; animation:fadeIn 1s ease; }
+    .welcome div { flex:1; min-width:300px; }
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
 
-/* SECTION */
-.section { padding:100px 60px; }
-.categories { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-.category { height:300px; background-size:cover; background-position:center; position:relative; cursor:pointer; overflow:hidden; transition:0.5s; }
-.category::after { content: ''; position:absolute; inset:0; background:rgba(0,0,0,0.4); transition:0.3s; }
-.category:hover::after { background:rgba(0,0,0,0.2); }
-.category h3 { position:absolute; bottom:20px; left:20px; z-index:2; font-size:24px; }
+    /* ===================== PRODUCTS ===================== */
+    .products { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
+    .product { width:340px; background:#111; padding:20px; border-radius:10px; transition:.3s; position:relative; }
+    .product:hover { transform:translateY(-8px); }
+    .product img { width:100%; border-radius:10px; transition:.5s; }
+    .product img:hover { transform:scale(1.05); }
+    .product h4 { margin-top:10px; font-size:18px; }
+    .product p { color:#aaa; margin-bottom:10px; }
+    .variant-selector { display:flex; gap:5px; margin-top:5px; }
+    .color-swatch { width:20px; height:20px; border-radius:50%; cursor:pointer; border:1px solid #ccc; transition:.3s; }
+    .color-swatch:hover { transform:scale(1.2); border-color:gold; }
 
-.products { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; }
-.product { width:260px; background:#111; padding:15px; border-radius:10px; transition:0.3s; position:relative; overflow:hidden; }
-.product:hover { transform:translateY(-8px); }
-.product img { width:100%; border-radius:10px; transition:0.5s; }
-.product img:hover { transform:scale(1.05); }
-.product h4 { margin-top:10px; }
-.product p { color:#aaa; }
-.variant-selector { display:flex; gap:5px; margin-top:5px; }
-.color-swatch { width:20px; height:20px; border-radius:50%; cursor:pointer; border:1px solid #ccc; transition:0.3s; }
-.color-swatch:hover { transform:scale(1.2); border-color:gold; }
-.product-logo { margin-top:5px; cursor:pointer; display:flex; }
-.product-logo img { width:30px; height:30px; margin-right:5px; border:1px solid #333; border-radius:5px; transition:0.3s; }
-.product-logo img:hover { border-color:gold; transform:scale(1.1); }
+    /* ===================== CATEGORIES ===================== */
+    .categories { display:flex; gap:20px; justify-content:center; margin-top:30px; }
+    .category { flex:1; min-width:250px; height:250px; background-size:cover; background-position:center; position:relative; cursor:pointer; border-radius:10px; overflow:hidden; transition:.3s; }
+    .category::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.4); transition:.3s; }
+    .category:hover::after { background:rgba(0,0,0,0.2); }
+    .category h3 { position:absolute; bottom:20px; left:20px; z-index:2; font-size:24px; }
 
-/* SPLIT */
-.split { display:flex; flex-wrap:wrap; }
-.split div { flex:1; min-width:300px; padding:60px; }
-.split img { width:100%; border-radius:10px; }
+    /* ===================== CART ===================== */
+    #cart { position:fixed; top:80px; right:30px; width:300px; background:#111; border:1px solid #333; padding:20px; border-radius:10px; display:none; z-index:200; }
+    #cart h3 { margin-bottom:10px; }
+    .cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
+    #cart-total { font-weight:bold; margin-top:10px; }
 
-/* CAROUSEL */
-.carousel { display:flex; overflow-x:auto; scroll-behavior:smooth; gap:20px; padding-bottom:20px; }
-.carousel::-webkit-scrollbar { display:none; }
+    /* ===================== CHECKOUT ===================== */
+    #checkout { padding:50px 60px; background:#111; border-radius:10px; margin-top:50px; }
+    #checkout table { width:100%; border-collapse:collapse; }
+    #checkout th, #checkout td { padding:10px; text-align:left; border-bottom:1px solid #333; }
+    #checkout th { font-weight:bold; }
+    #checkout button { margin-top:20px; }
 
-/* FOOTER */
-footer { text-align:center; padding:40px; border-top:1px solid #222; color:#777; }
+    /* ===================== NEWSLETTER ===================== */
+    #newsletter { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#111; border:1px solid #333; padding:20px; border-radius:10px; display:none; z-index:300; }
+    #newsletter input { padding:10px; width:200px; margin-right:10px; border:none; border-radius:5px; }
+    #newsletter button { padding:10px; background:gold; border:none; cursor:pointer; }
 
-/* CART */
-#cart { position:fixed; top:80px; right:30px; width:300px; background:#111; border:1px solid #333; padding:20px; border-radius:10px; display:none; z-index:200; }
-#cart h3 { margin-bottom:10px; }
-.cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
-#cart-total { font-weight:bold; margin-top:10px; }
-
-/* COUNTDOWN TIMER */
-.countdown { font-weight:bold; color:gold; margin-top:10px; }
-
-/* SOCIAL FEED */
-.social-feed { display:flex; gap:20px; overflow-x:auto; padding:20px 0; }
-.social-feed div { min-width:200px; height:300px; background:#111; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#777; }
-
-/* NEWSLETTER */
-#newsletter { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#111; border:1px solid #333; padding:20px; border-radius:10px; display:none; z-index:300; }
-#newsletter input { padding:10px; width:200px; margin-right:10px; border:none; border-radius:5px; }
-#newsletter button { padding:10px; background:gold; border:none; cursor:pointer; }
-</style>
+    /* ===================== FOOTER ===================== */
+    footer { text-align:center; padding:40px; border-top:1px solid #222; color:#777; }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>TK</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">About</a>
+      <a href="#checkout">Cart</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>TK</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">Collections</a>
-    <a href="#">About</a>
-  </nav>
-</header>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h2>TRAIN HARD. LIVE SHARP.</h2>
+    <p>Welcome to TK Clothing – Strength. Discipline. Confidence.</p>
+    <button class="btn" onclick="scrollToShop()">SHOP NOW</button>
+  </section>
 
-<section class="hero">
-  <h2>TRAIN HARD. LIVE SHARP.</h2>
-  <p>Premium gym & streetwear built for performance and lifestyle.</p>
-  <button class="btn" onclick="scrollToProducts()">SHOP NOW</button>
-  <div class="countdown" id="dropCountdown"></div>
-</section>
+  <!-- WELCOME -->
+  <section class="section welcome">
+    <div>
+      <h2>Welcome to TK Clothing</h2>
+      <p>Performance-driven streetwear built for the gym and everyday life. Browse our shop and find your style.</p>
+      <button class="btn" onclick="scrollToShop()">Shop Now</button>
+    </div>
+    <img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c" alt="Lifestyle">
+  </section>
 
-<section class="section" id="collections">
-  <h2>Collections</h2>
-  <br>
-  <div class="categories">
-    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438')"><h3>Gym Wear</h3></div>
-    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38')"><h3>Streetwear</h3></div>
-    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c')"><h3>Accessories</h3></div>
+  <!-- SHOP -->
+  <section class="section" id="shop">
+    <h2>Shop</h2>
+    <div class="products" id="product-grid"></div>
+  </section>
+
+  <!-- COLLECTIONS -->
+  <section class="section" id="collections">
+    <h2>Collections</h2>
+    <div class="categories">
+      <div class="category" style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438')"><h3>Gym Wear</h3></div>
+      <div class="category" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38')"><h3>Streetwear</h3></div>
+      <div class="category" style="background-image:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c')"><h3>Accessories</h3></div>
+    </div>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section id="checkout">
+    <h2>Checkout</h2>
+    <table>
+      <thead>
+        <tr><th>Product</th><th>Qty</th><th>Price</th><th>Remove</th></tr>
+      </thead>
+      <tbody id="checkout-items"></tbody>
+    </table>
+    <p id="checkout-total">Total: £0</p>
+    <button class="btn" onclick="completeCheckout()">Complete Purchase</button>
+  </section>
+
+  <!-- MINI CART -->
+  <div id="cart">
+    <h3>Cart</h3>
+    <div id="cart-items"></div>
+    <p id="cart-total">Total: £0</p>
+    <button class="btn" onclick="scrollToCheckout()">Go to Checkout</button>
   </div>
-</section>
 
-<section class="section" id="products">
-  <h2>Featured Products</h2>
-  <div class="carousel" id="product-grid">
-    <!-- Products injected via JS -->
+  <!-- NEWSLETTER -->
+  <div id="newsletter">
+    <p>Sign up for exclusive drops:</p>
+    <input type="email" placeholder="Email address">
+    <button>Subscribe</button>
   </div>
-</section>
 
-<section class="split">
-  <div>
-    <h2>Built for Performance</h2>
-    <p>Engineered for the gym. Designed for everyday life. TK blends strength, style, and comfort into every piece.</p>
-  </div>
-  <div>
-    <img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c">
-  </div>
-</section>
+  <footer>
+    © 2026 TK Clothing — Strength. Discipline. Confidence.
+  </footer>
 
-<section class="section">
-  <h2>Social Feed</h2>
-  <div class="social-feed">
-    <div>Instagram Post 1</div>
-    <div>Instagram Post 2</div>
-    <div>TikTok Post 1</div>
-    <div>Instagram Post 3</div>
-  </div>
-</section>
+  <script>
+    // ===================== PRODUCTS =====================
+    const products = [
+      {name:'Hoodie', price:18, logos:3, colors:['#000','#fff','#555']},
+      {name:'Joggers', price:18, logos:3, colors:['#000','#555','#888']},
+      {name:'Cargos', price:14.99, logos:3, colors:['#111','#333','#666']},
+      {name:'Tank Top', price:8, logos:3, colors:['#000','#fff','#999']},
+      {name:'Leggings', price:12, logos:3, colors:['#000','#111','#222']},
+      {name:'Tracksuit Bottoms', price:15, logos:3, colors:['#000','#333','#555']},
+      {name:'Tracksuit Hoodie', price:18, logos:3, colors:['#000','#444','#888']},
+      {name:'4 Pair Socks', price:6, logos:3, colors:['#fff','#ccc','#999']},
+      {name:'Shorts', price:8, logos:3, colors:['#000','#555','#777']},
+      {name:'Boxers Pack of 4', price:8, logos:3, colors:['#000','#333','#666']},
+      {name:'Tops', price:9.99, logos:3, colors:['#000','#555','#aaa']},
+      {name:'Jeans', price:15, logos:3, colors:['#111','#222','#333']},
+      {name:'Cropped Jacket', price:12.99, logos:3, colors:['#000','#555','#777']},
+      {name:'Cropped Hoodie', price:12.99, logos:3, colors:['#000','#333','#555']},
+      {name:'Cropped Top', price:12.99, logos:3, colors:['#000','#555','#aaa']},
+      {name:'Hat', price:12, logos:3, colors:['#000','#fff','#555']},
+      {name:'Beanie', price:12, logos:3, colors:['#000','#333','#777']}
+    ];
 
-<footer>
-  © 2026 TK Clothing — Strength. Discipline. Confidence.
-</footer>
+    // ===================== CART =====================
+    let cart = JSON.parse(localStorage.getItem('tkCart')) || [];
 
-<div id="cart">
-  <h3>Cart</h3>
-  <div id="cart-items"></div>
-  <p id="cart-total">Total: £0</p>
-</div>
-
-<div id="newsletter">
-  <p>Sign up for exclusive drops:</p>
-  <input type="email" placeholder="Email address"><button>Subscribe</button>
-</div>
-
-<script>
-const products = [
-  {name:'Hoodie', price:18, logos:3, colors:['#000','#fff','#555']},
-  {name:'Joggers', price:18, logos:3, colors:['#000','#555','#888']},
-  {name:'Cargos', price:14.99, logos:3, colors:['#111','#333','#666']},
-  {name:'Tank Top', price:8, logos:3, colors:['#000','#fff','#999']},
-  {name:'Leggings', price:12, logos:3, colors:['#000','#111','#222']},
-  {name:'Tracksuit Bottoms', price:15, logos:3, colors:['#000','#333','#555']},
-  {name:'Tracksuit Hoodie', price:18, logos:3, colors:['#000','#444','#888']},
-  {name:'4 Pair Socks', price:6, logos:3, colors:['#fff','#ccc','#999']},
-  {name:'Shorts', price:8, logos:3, colors:['#000','#555','#777']},
-  {name:'Boxers Pack of 4', price:8, logos:3, colors:['#000','#333','#666']},
-  {name:'Tops', price:9.99, logos:3, colors:['#000','#555','#aaa']},
-  {name:'Jeans', price:15, logos:3, colors:['#111','#222','#333']},
-  {name:'Cropped Jacket', price:12.99, logos:3, colors:['#000','#555','#777']},
-  {name:'Cropped Hoodie', price:12.99, logos:3, colors:['#000','#333','#555']},
-  {name:'Cropped Top', price:12.99, logos:3, colors:['#000','#666','#999']},
-  {name:'Hat', price:12, logos:3, colors:['#000','#fff','#222']},
-  {name:'Beanie', price:12, logos:3, colors:['#000','#333','#555']}
-];
-
-const cart=[];
-
-function renderProducts(){
-  const grid=document.getElementById('product-grid');
-  products.forEach(p=>{
-    for(let l=1;l<=p.logos;l++){
-      const div=document.createElement('div');
-      div.className='product';
-      div.innerHTML=`<img src='https://via.placeholder.com/260x260?text=${p.name}+Logo${l}'>
-      <h4>${p.name} Logo ${l}</h4>
-      <p>£${p.price}</p>`;
-      const colorDiv=document.createElement('div');
-      colorDiv.className='variant-selector';
-      p.colors.forEach(c=>{
-        const swatch=document.createElement('div');
-        swatch.className='color-swatch';
-        swatch.style.background=c;
-        swatch.onclick=()=>div.querySelector('img').style.background=c;
-        colorDiv.appendChild(swatch);
+    function updateCart(){
+      const cartDiv = document.getElementById('cart-items');
+      cartDiv.innerHTML='';
+      let total=0;
+      cart.forEach((item,i)=>{
+        total+=item.price*item.qty;
+        const div=document.createElement('div');
+        div.className='cart-item';
+        div.innerHTML=`<span>${item.name} (${item.color})</span><span>${item.qty}</span><span>£${item.price*item.qty}</span><button onclick='removeFromCart(${i})'>x</button>`;
+        cartDiv.appendChild(div);
       });
-      div.appendChild(colorDiv);
-      const btn=document.createElement('button');
-      btn.className='btn'; btn.textContent='Add to Cart';
-      btn.onclick=()=>addToCart(p.name+' Logo '+l,p.price);
-      div.appendChild(btn);
-      grid.appendChild(div);
+      document.getElementById('cart-total').innerText='Total: £'+total.toFixed(2);
+      localStorage.setItem('tkCart', JSON.stringify(cart));
+      updateCheckout();
     }
-  });
-}
 
-function addToCart(name,price){
-  cart.push({name,price});
-  updateCart();
-}
+    function addToCart(product,color){
+      const existing=cart.find(p=>p.name===product.name && p.color===color);
+      if(existing){ existing.qty++; }
+      else{ cart.push({name:product.name,price:product.price,color:color,qty:1}); }
+      updateCart();
+      document.getElementById('cart').style.display='block';
+    }
 
-function updateCart(){
-  const container=document.getElementById('cart-items'); container.innerHTML='';
-  let total=0;
-  cart.forEach(item=>{
-    const div=document.createElement('div'); div.className='cart-item';
-    div.innerHTML=`<p>${item.name}</p><p>£${item.price}</p>`;
-    container.appendChild(div);
-    total+=item.price;
-  });
-  document.getElementById('cart-total').textContent='Total: £'+total.toFixed(2);
-  document.getElementById('cart').style.display=cart.length>0?'block':'none';
-}
+    function removeFromCart(i){ cart.splice(i,1); updateCart(); }
 
-function scrollToProducts(){ document.getElementById('products').scrollIntoView({behavior:'smooth'}); }
+    // ===================== CHECKOUT =====================
+    function updateCheckout(){
+      const tbody=document.getElementById('checkout-items');
+      tbody.innerHTML='';
+      let total=0;
+      cart.forEach((item,i)=>{
+        total+=item.price*item.qty;
+        const tr=document.createElement('tr');
+        tr.innerHTML=`<td>${item.name} (${item.color})</td><td>${item.qty}</td><td>£${item.price*item.qty}</td><td><button onclick='removeFromCart(${i})'>x</button></td>`;
+        tbody.appendChild(tr);
+      });
+      document.getElementById('checkout-total').innerText='Total: £'+total.toFixed(2);
+    }
 
-// Countdown Timer Example
-const dropDate = new Date(); dropDate.setHours(dropDate.getHours()+24);
-function updateCountdown(){
-  const now=new Date(); const diff=dropDate-now;
-  if(diff<=0){ document.getElementById('dropCountdown').textContent='Drop Live!'; return; }
-  const h=Math.floor(diff/1000/60/60); const m=Math.floor((diff/1000/60)%60); const s=Math.floor((diff/1000)%60);
-  document.getElementById('dropCountdown').textContent=`Next Drop: ${h}h ${m}m ${s}s`;
-}
-setInterval(updateCountdown,1000);
+    function completeCheckout(){
+      alert('Thank you for your purchase!');
+      cart=[];
+      updateCart();
+    }
 
-// Newsletter popup
-setTimeout(()=>{ document.getElementById('newsletter').style.display='block'; }, 5000);
+    // ===================== PRODUCT GRID =====================
+    const grid=document.getElementById('product-grid');
+    products.forEach(product=>{
+      product.colors.forEach(color=>{
+        for(let logo=1;logo<=product.logos;logo++){
+          const div=document.createElement('div');
+          div.className='product';
+          div.innerHTML=`<img src='https://via.placeholder.com/300x300/${color.replace('#','')}/fff?text=${product.name}+Logo${logo}' alt='${product.name} Logo${logo}'><h4>${product.name} Logo${logo}</h4><p>£${product.price}</p><div class='variant-selector'>${product.colors.map(c=>`<div class='color-swatch' style='background:${c}' onclick='addToCart(${JSON.stringify(product)},"${c}")'></div>`).join('')}</div><button class='btn' onclick='addToCart(${JSON.stringify(product)},"${color}")'>Add to Cart</button>`;
+          grid.appendChild(div);
+        }
+      });
+    });
 
-renderProducts();
-</script>
+    // ===================== SCROLL =====================
+    function scrollToShop(){ document.getElementById('shop').scrollIntoView({behavior:'smooth'}); }
+    function scrollToCheckout(){ document.getElementById('checkout').scrollIntoView({behavior:'smooth'}); }
 
-</body>
-</html>
+    // ===================== NEWSLETTER =====================
+    setTimeout(()=>{ document.getElementById('ne
