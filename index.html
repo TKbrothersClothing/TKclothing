@@ -1,2078 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TK Clothing</title>
-  <style>
-    :root {
-      --bg: #0b0b0b;
-      --panel: #111111;
-      --panel-2: #161616;
-      --line: rgba(255,255,255,0.08);
-      --text: #f5f5f5;
-      --muted: #a7a7a7;
-      --gold: #d9b45a;
-      --gold-2: #f0d58a;
-      --shadow: 0 18px 50px rgba(0,0,0,0.35);
-      --radius: 22px;
-      --max: 1280px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at top left, rgba(217, 180, 90, 0.12), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 28%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 96px 0;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .eyebrow::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    h1, h2, h3, h4, p {
-      margin: 0;
-    }
-
-    .section-title {
-      font-size: clamp(30px, 4vw, 54px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      margin-bottom: 14px;
-    }
-
-    .section-copy {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 17px;
-      margin-bottom: 34px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border: 0;
-      border-radius: 999px;
-      padding: 14px 22px;
-      cursor: pointer;
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
-      background: linear-gradient(180deg, var(--gold-2), var(--gold));
-      color: #120f08;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      box-shadow: 0 12px 30px rgba(217,180,90,0.18);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 36px rgba(217,180,90,0.24);
-    }
-
-    .btn.secondary {
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      border: 1px solid var(--line);
-      box-shadow: none;
-    }
-
-    .btn.secondary:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 90;
-      backdrop-filter: blur(16px);
-      background: rgba(9,9,9,0.78);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 16px 0;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .brand-mark {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden;
-      flex: 0 0 auto;
-    }
-
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 6px;
-      background: #0f0f0f;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-text strong {
-      font-size: 14px;
-    }
-
-    .brand-text span {
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: #d7d7d7;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav a {
-      position: relative;
-      font-size: 14px;
-      letter-spacing: 0.05em;
-      padding-bottom: 4px;
-    }
-
-    .nav a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      transform: scaleX(0);
-      transform-origin: left;
-      background: var(--gold);
-      transition: transform 180ms ease;
-    }
-
-    .nav a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .icon-btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      cursor: pointer;
-      transition: transform 180ms ease, background 180ms ease;
-    }
-
-    .icon-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -6px;
-      right: -6px;
-      min-width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: var(--gold);
-      color: #120f08;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 0 6px;
-    }
-
-    .hero {
-      padding: 34px 0 18px;
-    }
-
-    .hero-panel {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 34px;
-      box-shadow: var(--shadow);
-      min-height: 720px;
-      display: grid;
-      align-items: center;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.48), rgba(0,0,0,0.58)),
-        url("images/banner.jpg") center/cover no-repeat,
-        linear-gradient(135deg, rgba(217,180,90,0.12), transparent 38%);
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      padding: 38px;
-      align-items: center;
-    }
-
-    .hero-copy {
-      max-width: 760px;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--gold);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .hero-kicker::before {
-      content: '';
-      width: 30px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    .hero-title {
-      font-size: clamp(52px, 8vw, 98px);
-      line-height: 0.94;
-      letter-spacing: -0.06em;
-      margin-bottom: 18px;
-    }
-
-    .hero-subtitle {
-      max-width: 620px;
-      color: #d0d0d0;
-      font-size: 18px;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 28px;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 32px;
-      max-width: 640px;
-    }
-
-    .stat {
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      border-radius: 22px;
-      padding: 16px;
-      backdrop-filter: blur(10px);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 26px;
-      margin-bottom: 4px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .hero-art {
-      display: grid;
-      gap: 18px;
-    }
-
-    .hero-card {
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 28px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.04);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 1 / 1.1;
-      object-fit: cover;
-    }
-
-    .hero-mini {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 16px;
-    }
-
-    .mini-tile {
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 18px;
-      min-height: 130px;
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-    }
-
-    .mini-tile strong {
-      color: var(--text);
-      font-size: 18px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .welcome-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .welcome-card {
-      padding: 32px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      box-shadow: var(--shadow);
-    }
-
-    .welcome-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .welcome-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 14px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .welcome-item:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .welcome-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: var(--gold);
-      margin-top: 7px;
-      flex: 0 0 auto;
-      box-shadow: 0 0 0 6px rgba(217,180,90,0.12);
-    }
-
-    .welcome-image {
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      min-height: 520px;
-      background: linear-gradient(135deg, rgba(217,180,90,0.14), rgba(255,255,255,0.03));
-    }
-
-    .welcome-image img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      min-height: 520px;
-    }
-
-    .branding-strip {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .branding-card {
-      position: relative;
-      min-height: 460px;
-      border-radius: 26px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #111;
-      box-shadow: var(--shadow);
-    }
-
-    .branding-card img.model {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .branding-overlay {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(0,0,0,0.62);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-    }
-
-    .branding-overlay h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-    }
-
-    .branding-overlay p {
-      margin: 0 0 12px;
-      color: #d0d0d0;
-      font-size: 14px;
-    }
-
-    .branding-overlay img {
-      max-width: 140px;
-      max-height: 40px;
-      object-fit: contain;
-      display: block;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .featured-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      box-shadow: var(--shadow);
-      min-height: 460px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .featured-card img {
-      width: 100%;
-      aspect-ratio: 1 / 1.15;
-      object-fit: cover;
-      display: block;
-    }
-
-    .featured-content {
-      padding: 18px;
-      display: grid;
-      gap: 10px;
-      flex: 1;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      background: rgba(217,180,90,0.12);
-      color: var(--gold);
-      border: 1px solid rgba(217,180,90,0.18);
-    }
-
-    .featured-card h3 {
-      font-size: 22px;
-      line-height: 1.05;
-    }
-
-    .featured-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: auto;
-    }
-
-    .price {
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .shop-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .chip {
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      padding: 10px 14px;
-      cursor: pointer;
-      transition: background 160ms ease, transform 160ms ease, border-color 160ms ease;
-    }
-
-    .chip:hover,
-    .chip.active {
-      background: rgba(217,180,90,0.14);
-      border-color: rgba(217,180,90,0.3);
-      transform: translateY(-1px);
-    }
-
-    .search {
-      min-width: min(100%, 320px);
-      flex: 1 1 320px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .search input {
-      width: 100%;
-      background: transparent;
-      border: 0;
-      outline: none;
-      color: var(--text);
-    }
-
-    .search input::placeholder {
-      color: #7f7f7f;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .product-card {
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      min-height: 620px;
-    }
-
-    .product-media {
-      position: relative;
-      background: #0f0f0f;
-    }
-
-    .product-media img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 1 / 1.08;
-      object-fit: cover;
-    }
-
-    .product-logo-overlay {
-      position: absolute;
-      right: 14px;
-      bottom: 14px;
-      width: 84px;
-      height: 84px;
-      padding: 10px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.62);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 3;
-    }
-
-    .product-logo-overlay img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .badge-row {
-      position: absolute;
-      left: 14px;
-      top: 14px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      right: 14px;
-      z-index: 4;
-    }
-
-    .badge {
-      border-radius: 999px;
-      padding: 7px 10px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      backdrop-filter: blur(10px);
-      background: rgba(10,10,10,0.58);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .badge.gold {
-      background: rgba(217,180,90,0.12);
-      border-color: rgba(217,180,90,0.28);
-      color: var(--gold);
-    }
-
-    .product-body {
-      padding: 18px;
-      display: grid;
-      gap: 14px;
-      flex: 1;
-    }
-
-    .product-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .product-title {
-      font-size: 20px;
-      line-height: 1.05;
-      margin-bottom: 6px;
-    }
-
-    .product-meta {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .logo-switcher {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .logo-pill {
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      padding: 8px 11px;
-      font-size: 12px;
-      cursor: pointer;
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-pill:hover,
-    .logo-pill.active {
-      background: rgba(217,180,90,0.14);
-      border-color: rgba(217,180,90,0.32);
-      transform: translateY(-1px);
-    }
-
-    .logo-pill img {
-      max-height: 20px;
-      max-width: 72px;
-      object-fit: contain;
-    }
-
-    .swatches {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .swatch {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      border: 2px solid rgba(255,255,255,0.15);
-      cursor: pointer;
-      position: relative;
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-    }
-
-    .swatch:hover,
-    .swatch.active {
-      transform: scale(1.08);
-      border-color: var(--gold);
-      box-shadow: 0 0 0 5px rgba(217,180,90,0.12);
-    }
-
-    .product-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: auto;
-    }
-
-    .product-actions .btn {
-      flex: 1 1 140px;
-    }
-
-    .collection-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .collection-card {
-      position: relative;
-      min-height: 320px;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    }
-
-    .collection-card .overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.8));
-    }
-
-    .collection-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .collection-content {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 22px;
-      z-index: 1;
-      display: grid;
-      gap: 8px;
-    }
-
-    .collection-content h3 {
-      font-size: 24px;
-    }
-
-    .collection-content p {
-      color: rgba(255,255,255,0.75);
-      max-width: 34ch;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .about-panel {
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .metric {
-      padding: 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 24px;
-      margin-bottom: 4px;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .about-photo {
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      min-height: 420px;
-      background: #121212;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      min-height: 420px;
-    }
-
-    .checkout-wrap {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
-      align-items: start;
-    }
-
-    .panel {
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .cart-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    .cart-table th,
-    .cart-table td {
-      padding: 14px 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      text-align: left;
-      vertical-align: middle;
-      font-size: 14px;
-    }
-
-    .cart-table th {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-    }
-
-    .qty-stepper {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 999px;
-      padding: 5px 8px;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .qty-stepper button {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 0;
-      background: rgba(255,255,255,0.08);
-      color: var(--text);
-      cursor: pointer;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-    }
-
-    .summary-row strong {
-      color: var(--text);
-    }
-
-    .checkout-form {
-      display: grid;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .checkout-form input,
-    .checkout-form select,
-    .checkout-form textarea {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      padding: 14px 14px;
-      outline: none;
-    }
-
-    .checkout-form textarea {
-      min-height: 98px;
-      resize: vertical;
-    }
-
-    .drawer-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.46);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms ease;
-      z-index: 190;
-    }
-
-    .drawer-backdrop.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: min(100%, 430px);
-      height: 100vh;
-      background: #0f0f0f;
-      border-left: 1px solid rgba(255,255,255,0.08);
-      box-shadow: -24px 0 70px rgba(0,0,0,0.35);
-      transform: translateX(102%);
-      transition: transform 220ms ease;
-      z-index: 200;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cart-drawer.open {
-      transform: translateX(0);
-    }
-
-    .drawer-header,
-    .drawer-footer {
-      padding: 18px 18px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .drawer-footer {
-      border-bottom: 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: auto;
-      display: grid;
-      gap: 12px;
-    }
-
-    .drawer-body {
-      padding: 18px;
-      overflow: auto;
-      display: grid;
-      gap: 14px;
-    }
-
-    .drawer-item {
-      display: grid;
-      grid-template-columns: 74px 1fr auto;
-      gap: 12px;
-      align-items: center;
-      padding: 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .drawer-item img {
-      width: 74px;
-      height: 74px;
-      object-fit: cover;
-      border-radius: 14px;
-    }
-
-    .drawer-item h4 {
-      font-size: 15px;
-      margin-bottom: 4px;
-    }
-
-    .drawer-item p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .drawer-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: flex-end;
-    }
-
-    .drawer-mini {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .tiny-btn {
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      border: 0;
-      background: rgba(255,255,255,0.08);
-      color: var(--text);
-      cursor: pointer;
-    }
-
-    .remove-btn {
-      border: 0;
-      background: transparent;
-      color: #e3a3a3;
-      cursor: pointer;
-      font-size: 13px;
-      padding: 0;
-    }
-
-    .empty-state {
-      padding: 24px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px dashed rgba(255,255,255,0.12);
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .newsletter {
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%) translateY(20px);
-      width: min(calc(100% - 24px), 680px);
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(12,12,12,0.96);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      z-index: 180;
-      display: grid;
-      gap: 12px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 220ms ease, transform 220ms ease;
-    }
-
-    .newsletter.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-      pointer-events: auto;
-    }
-
-    .newsletter-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-    }
-
-    .newsletter input {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      padding: 14px 14px;
-    }
-
-    .newsletter-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      border: 0;
-      background: rgba(255,255,255,0.08);
-      color: var(--text);
-      cursor: pointer;
-    }
-
-    .footer {
-      padding: 30px 0 50px;
-      color: #898989;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .socials {
-      display: flex;
-      gap: 10px;
-    }
-
-    .socials a {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    @media (max-width: 1120px) {
-      .hero-grid,
-      .welcome-grid,
-      .about-grid,
-      .checkout-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .featured-grid,
-      .product-grid,
-      .collection-grid,
-      .branding-strip {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 820px) {
-      .header-inner {
-        flex-wrap: wrap;
-      }
-
-      .nav {
-        order: 3;
-        width: 100%;
-        justify-content: flex-start;
-        gap: 16px;
-      }
-
-      .hero-panel {
-        min-height: 0;
-      }
-
-      .hero-grid {
-        padding: 20px;
-      }
-
-      .hero-stats,
-      .metric-grid,
-      .hero-mini,
-      .featured-grid,
-      .product-grid,
-      .collection-grid,
-      .branding-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 72px 0;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-      }
-
-      .newsletter-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TK Clothing</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#0b0b0b;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:#000;
+border-bottom:1px solid #222;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:bold;
+}
+
+.logo img{
+height:40px;
+}
+
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#bbb;
+font-size:14px;
+}
+
+nav a:hover{
+color:white;
+}
+
+.hero{
+height:85vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:url("images/banner.jpg") center/cover no-repeat;
+}
+
+.hero h1{
+font-size:70px;
+background:rgba(0,0,0,0.6);
+padding:25px 50px;
+letter-spacing:3px;
+}
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:90px 20px;
+}
+
+h2{
+font-size:40px;
+margin-bottom:40px;
+}
+
+.logo-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+text-align:center;
+}
+
+.logo-card{
+background:#111;
+padding:40px;
+border-radius:10px;
+border:1px solid #222;
+}
+
+.logo-card img{
+max-width:180px;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.feature{
+background:#111;
+border-radius:10px;
+border:1px solid #222;
+padding:20px;
+}
+
+.feature img{
+width:100%;
+}
+
+.shop-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.product{
+background:#111;
+padding:25px;
+border-radius:10px;
+border:1px solid #222;
+}
+
+.product h3{
+margin-top:10px;
+}
+
+.price{
+font-weight:bold;
+margin:10px 0;
+}
+
+button{
+padding:10px 20px;
+border:none;
+cursor:pointer;
+background:#d4af37;
+font-weight:bold;
+}
+
+button:hover{
+background:#f0d678;
+}
+
+.cart{
+position:fixed;
+right:0;
+top:0;
+height:100vh;
+width:320px;
+background:#111;
+border-left:1px solid #222;
+padding:20px;
+transform:translateX(100%);
+transition:0.3s;
+overflow:auto;
+}
+
+.cart.open{
+transform:translateX(0);
+}
+
+.cart-item{
+margin-bottom:15px;
+border-bottom:1px solid #222;
+padding-bottom:10px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+border-top:1px solid #222;
+margin-top:80px;
+color:#888;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:40px;
+}
+
+.logo-grid,
+.feature-grid,
+.shop-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
 </head>
+
 <body>
-  <div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleCart(false)"></div>
-
-  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart drawer">
-    <div class="drawer-header">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
-        <div>
-          <div class="eyebrow">Your cart</div>
-          <h3 style="font-size:24px;">Cart & Checkout</h3>
-        </div>
-        <button class="icon-btn" onclick="toggleCart(false)">✕</button>
-      </div>
-    </div>
-    <div class="drawer-body" id="drawerItems"></div>
-    <div class="drawer-footer">
-      <div class="summary-row"><span>Subtotal</span><strong id="drawerSubtotal">£0.00</strong></div>
-      <div class="summary-row"><span>Shipping</span><strong>Calculated at checkout</strong></div>
-      <button class="btn" onclick="scrollToSection('checkout')">Go to checkout</button>
-    </div>
-  </aside>
-
-  <div class="newsletter" id="newsletterBox">
-    <button class="newsletter-close" onclick="hideNewsletter()">✕</button>
-    <div>
-      <div class="eyebrow">Exclusive drops</div>
-      <h3 style="font-size:22px;margin-bottom:6px;">Get early access to new TK releases.</h3>
-      <p style="color:var(--muted);">Join the list for new collections, restocks, and members-only updates.</p>
-    </div>
-    <div class="newsletter-row">
-      <input type="email" placeholder="Email address" />
-      <button class="btn">Subscribe</button>
-    </div>
-  </div>
-
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="#home" aria-label="TK Clothing home">
-        <span class="brand-mark">
-          <img src="images/logo1.png" alt="TK logo">
-        </span>
-        <span class="brand-text">
-          <strong>TK Clothing</strong>
-          <span>Premium gym + streetwear</span>
-        </span>
-      </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#home">Home</a>
-        <a href="#logos">Logos</a>
-        <a href="#featured">Featured</a>
-        <a href="#shop">Shop</a>
-        <a href="#collections">Collections</a>
-        <a href="#about">About</a>
-        <a href="#checkout">Checkout</a>
-      </nav>
-      <div class="header-actions">
-        <button class="icon-btn" onclick="toggleCart(true)" aria-label="Open cart">
-          🛒
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-panel">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <div class="hero-kicker">Premium gym + streetwear</div>
-            <h1 class="hero-title">TRAIN HARD. LIVE SHARP.</h1>
-            <p class="hero-subtitle">A clean, premium TK Clothing home built to welcome customers, show your real branding, and let the shop do the selling.</p>
-            <div class="hero-actions">
-              <button class="btn" onclick="scrollToSection('shop')">Shop now</button>
-              <button class="btn secondary" onclick="scrollToSection('logos')">View logos</button>
-            </div>
-            <div class="hero-stats">
-              <div class="stat"><strong>18</strong><span>Core products</span></div>
-              <div class="stat"><strong>3</strong><span>Logo versions each</span></div>
-              <div class="stat"><strong>4+</strong><span>Colour options per item</span></div>
-            </div>
-          </div>
-
-          <div class="hero-art">
-            <div class="hero-card">
-              <img id="heroArt" alt="TK Clothing hero banner" src="images/banner.jpg" />
-            </div>
-            <div class="hero-mini">
-              <div class="mini-tile">
-                <strong>Luxury branding</strong>
-                Real banner and real logos are now built into the page.
-              </div>
-              <div class="mini-tile">
-                <strong>Ready to shop</strong>
-                Clear sections, visible products, and a cart that actually works.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="welcome">
-      <div class="container welcome-grid">
-        <div class="welcome-card">
-          <div class="eyebrow">Welcome to TK</div>
-          <h2 class="section-title">A brand-first homepage that feels polished straight away.</h2>
-          <p class="section-copy">Home is welcoming, Shop is for shopping, Collections are simple highlights, and your logos now have their own proper place in the design.</p>
-          <div class="welcome-list">
-            <div class="welcome-item">
-              <span class="welcome-dot"></span>
-              <div>
-                <strong>Clean premium look</strong>
-                <p style="color:var(--muted);margin-top:4px;">Dark luxury styling with black, gold, sharp spacing, and a proper brand feel.</p>
-              </div>
-            </div>
-            <div class="welcome-item">
-              <span class="welcome-dot"></span>
-              <div>
-                <strong>Actual shopping flow</strong>
-                <p style="color:var(--muted);margin-top:4px;">Products, cart, quantities, totals, and checkout all stay in one place.</p>
-              </div>
-            </div>
-            <div class="welcome-item">
-              <span class="welcome-dot"></span>
-              <div>
-                <strong>Your real logos included</strong>
-                <p style="color:var(--muted);margin-top:4px;">Banner as hero art, logo showcase section, and real logo pills inside product cards.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="welcome-image">
-          <img id="welcomeArt" alt="TK lifestyle artwork" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=80" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="logos">
-      <div class="container">
-        <div class="eyebrow">Brand identity</div>
-        <h2 class="section-title">The TK logo system</h2>
-        <p class="section-copy">Three different logo directions across one premium clothing brand. Each one is shown properly with its own visual lane.</p>
-
-        <div class="featured-grid" style="margin-bottom:24px;">
-          <div class="featured-card" style="min-height:auto;">
-            <img src="images/logo1.png" alt="TK logo 1" style="aspect-ratio:1/0.7;object-fit:contain;background:#111;padding:30px;">
-            <div class="featured-content">
-              <span class="tag">Logo 1</span>
-              <h3>Luxury signature</h3>
-              <p>The premium identity direction.</p>
-            </div>
-          </div>
-
-          <div class="featured-card" style="min-height:auto;">
-            <img src="images/logo2.png" alt="TK logo 2" style="aspect-ratio:1/0.7;object-fit:contain;background:#f2f2f2;padding:30px;">
-            <div class="featured-content">
-              <span class="tag">Logo 2</span>
-              <h3>Minimal linework</h3>
-              <p>A cleaner stripped-back direction.</p>
-            </div>
-          </div>
-
-          <div class="featured-card" style="min-height:auto;">
-            <img src="images/logo3.png" alt="TK logo 3" style="aspect-ratio:1/0.7;object-fit:contain;background:#f2f2f2;padding:30px;">
-            <div class="featured-content">
-              <span class="tag">Logo 3</span>
-              <h3>Performance mark</h3>
-              <p>Sharper, more aggressive activewear branding.</p>
-            </div>
-          </div>
-
-          <div class="featured-card" style="min-height:auto;">
-            <img src="images/banner.jpg" alt="TK banner" style="aspect-ratio:1/0.7;object-fit:cover;">
-            <div class="featured-content">
-              <span class="tag">Banner</span>
-              <h3>Hero branding</h3>
-              <p>Your main banner is now part of the site identity.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="branding-strip">
-          <article class="branding-card">
-            <img class="model" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80" alt="Model in black premium clothing" />
-            <div class="branding-overlay">
-              <h3>Logo 1</h3>
-              <p>Luxury direction for the premium side of TK Clothing.</p>
-              <img src="images/logo1.png" alt="TK logo 1">
-            </div>
-          </article>
-
-          <article class="branding-card">
-            <img class="model" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="Model in clean monochrome streetwear" />
-            <div class="branding-overlay">
-              <h3>Logo 2</h3>
-              <p>Minimal linework direction for cleaner pieces.</p>
-              <img src="images/logo2.png" alt="TK logo 2">
-            </div>
-          </article>
-
-          <article class="branding-card">
-            <img class="model" src="https://images.unsplash.com/photo-1506629905607-c52b1b0f6f43?auto=format&fit=crop&w=1200&q=80" alt="Model in sharp active streetwear" />
-            <div class="branding-overlay">
-              <h3>Logo 3</h3>
-              <p>Sharper performance identity for activewear-led drops.</p>
-              <img src="images/logo3.png" alt="TK logo 3">
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="featured">
-      <div class="container">
-        <div class="eyebrow">Featured drops</div>
-        <h2 class="section-title">Bigger featured products that actually feel premium.</h2>
-        <p class="section-copy">These are the cards people see first. They are larger, cleaner, and built to sell the product instead of hiding it.</p>
-        <div class="featured-grid" id="featuredGrid"></div>
-      </div>
-    </section>
-
-    <section class="section" id="shop">
-      <div class="container">
-        <div class="eyebrow">Shop</div>
-        <h2 class="section-title">Real shop layout with filters, search, variants, and big cards.</h2>
-        <p class="section-copy">Every item appears with its logo version, colour swatches, and add-to-cart button so the shop feels like an actual store.</p>
-
-        <div class="shop-toolbar">
-          <div class="filters" id="filterChips"></div>
-          <label class="search" aria-label="Search products">
-            🔎
-            <input id="searchInput" type="text" placeholder="Search products, colours, or logo versions..." />
-          </label>
-        </div>
-
-        <div class="product-grid" id="productGrid"></div>
-      </div>
-    </section>
-
-    <section class="section" id="collections">
-      <div class="container">
-        <div class="eyebrow">Collections</div>
-        <h2 class="section-title">Simple collection highlights, not a duplicate shop.</h2>
-        <p class="section-copy">Collections should help browsing. They do not need to repeat every product again.</p>
-        <div class="collection-grid">
-          <a class="collection-card" href="#shop" data-filter="Gym">
-            <img alt="Gym wear collection" id="collectionGym" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80" />
-            <div class="overlay"></div>
-            <div class="collection-content">
-              <div class="tag">Collection</div>
-              <h3>Gym Wear</h3>
-              <p>Hoodies, joggers, leggings, tanks and training pieces.</p>
-            </div>
-          </a>
-          <a class="collection-card" href="#shop" data-filter="Streetwear">
-            <img alt="Streetwear collection" id="collectionStreet" src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=80" />
-            <div class="overlay"></div>
-            <div class="collection-content">
-              <div class="tag">Collection</div>
-              <h3>Streetwear</h3>
-              <p>Cargos, tops, cropped pieces and daily essentials.</p>
-            </div>
-          </a>
-          <a class="collection-card" href="#shop" data-filter="Accessories">
-            <img alt="Accessories collection" id="collectionAccessories" src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80" />
-            <div class="overlay"></div>
-            <div class="collection-content">
-              <div class="tag">Collection</div>
-              <h3>Accessories</h3>
-              <p>Socks, hats, beanies and smaller add-on pieces.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container about-grid">
-        <div class="about-panel">
-          <div class="eyebrow">About TK</div>
-          <h2 class="section-title">Strength. Discipline. Confidence.</h2>
-          <p class="section-copy">The brand should feel premium, direct, and clear. The design here gives you a proper homepage, a proper shop, and a proper cart flow without the whole site feeling like one repeated block.</p>
-          <div class="metric-grid">
-            <div class="metric"><strong>£6–£18</strong><span>Your pricing range</span></div>
-            <div class="metric"><strong>3 logos</strong><span>Separate versions</span></div>
-            <div class="metric"><strong>Live cart</strong><span>Persistent checkout</span></div>
-          </div>
-        </div>
-        <div class="about-photo">
-          <img id="aboutArt" alt="TK brand artwork" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=80" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="checkout">
-      <div class="container checkout-wrap">
-        <div class="panel">
-          <div class="eyebrow">Checkout</div>
-          <h2 class="section-title">Review your cart and complete the order.</h2>
-          <p class="section-copy">This checkout is fully working inside the same page, so your index stays one file but the customer flow still feels complete.</p>
-
-          <table class="cart-table">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Qty</th>
-                <th>Price</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="checkoutTable"></tbody>
-          </table>
-
-          <div style="margin-top:16px;display:grid;gap:10px;max-width:420px;">
-            <div class="summary-row"><span>Subtotal</span><strong id="checkoutSubtotal">£0.00</strong></div>
-            <div class="summary-row"><span>Shipping</span><strong>Calculated at checkout</strong></div>
-            <div class="summary-row"><span>Total</span><strong id="checkoutTotal">£0.00</strong></div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="eyebrow">Customer details</div>
-          <h3 style="font-size:24px;margin-bottom:8px;">Enter delivery details</h3>
-          <p style="color:var(--muted);margin-bottom:14px;">This keeps the file self-contained and ready to upgrade later with real payments.</p>
-          <div class="checkout-form">
-            <input type="text" placeholder="Full name" />
-            <input type="email" placeholder="Email address" />
-            <input type="text" placeholder="Address" />
-            <input type="text" placeholder="City" />
-            <input type="text" placeholder="Postcode" />
-            <select>
-              <option>Standard delivery</option>
-              <option>Express delivery</option>
-            </select>
-            <textarea placeholder="Order notes"></textarea>
-            <button class="btn" onclick="completeOrder()">Complete purchase</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <div style="font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">TK Clothing</div>
-        <div>© 2026 TK Clothing — Strength. Discipline. Confidence.</div>
-      </div>
-      <div class="socials">
-        <a href="#" aria-label="Instagram">⌁</a>
-        <a href="#" aria-label="TikTok">◌</a>
-        <a href="#" aria-label="X">✦</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const productData = [
-      { name: 'Hoodie', price: 18, category: 'Gym', colors: ['#000000', '#ffffff', '#5a5a5a', '#1c1c1c'], badge: 'Core' },
-      { name: 'Joggers', price: 18, category: 'Gym', colors: ['#000000', '#555555', '#8a8a8a', '#1f1f1f'], badge: 'Core' },
-      { name: 'Cargos', price: 14.99, category: 'Streetwear', colors: ['#141414', '#323232', '#626262', '#808080'], badge: 'New' },
-      { name: 'Tank Top', price: 8, category: 'Gym', colors: ['#000000', '#ffffff', '#b0b0b0', '#2b2b2b'], badge: 'Light' },
-      { name: 'Leggings', price: 12, category: 'Gym', colors: ['#000000', '#111111', '#2d2d2d', '#5f5f5f'], badge: 'Core' },
-      { name: 'Tracksuit Bottoms', price: 15, category: 'Gym', colors: ['#000000', '#333333', '#555555', '#7b7b7b'], badge: 'Set' },
-      { name: 'Tracksuit Zipup', price: 18, category: 'Gym', colors: ['#000000', '#3c3c3c', '#767676', '#d0d0d0'], badge: 'Set' },
-      { name: 'Tracksuit Hoodie', price: 18, category: 'Gym', colors: ['#000000', '#444444', '#808080', '#f0f0f0'], badge: 'Set' },
-      { name: '4 Pair Socks', price: 6, category: 'Accessories', colors: ['#ffffff', '#d0d0d0', '#9f9f9f', '#1f1f1f'], badge: 'Pack' },
-      { name: 'Shorts', price: 8, category: 'Gym', colors: ['#000000', '#555555', '#777777', '#c5c5c5'], badge: 'Light' },
-      { name: 'Boxers Pack of 4', price: 8, category: 'Accessories', colors: ['#000000', '#222222', '#555555', '#9d9d9d'], badge: 'Pack' },
-      { name: 'Tops', price: 9.99, category: 'Streetwear', colors: ['#000000', '#555555', '#aaaaaa', '#ffffff'], badge: 'Daily' },
-      { name: 'Jeans', price: 15, category: 'Streetwear', colors: ['#111111', '#222222', '#373737', '#666666'], badge: 'Classic' },
-      { name: 'Cropped Jacket', price: 12.99, category: 'Streetwear', colors: ['#000000', '#555555', '#7f7f7f', '#d7d7d7'], badge: 'Crop' },
-      { name: 'Cropped Hoodie', price: 12.99, category: 'Streetwear', colors: ['#000000', '#333333', '#777777', '#f4f4f4'], badge: 'Crop' },
-      { name: 'Cropped Top', price: 12.99, category: 'Streetwear', colors: ['#000000', '#666666', '#999999', '#ffffff'], badge: 'Crop' },
-      { name: 'Hat', price: 12, category: 'Accessories', colors: ['#000000', '#ffffff', '#333333', '#777777'], badge: 'Headwear' },
-      { name: 'Beanie', price: 12, category: 'Accessories', colors: ['#000000', '#222222', '#555555', '#bcbcbc'], badge: 'Headwear' }
-    ];
-
-    const logoVariants = [
-      { id: 1, label: 'Logo 1', file: 'images/logo1.png' },
-      { id: 2, label: 'Logo 2', file: 'images/logo2.png' },
-      { id: 3, label: 'Logo 3', file: 'images/logo3.png' }
-    ];
-
-    const modelImages = [
-      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1506629905607-c52b1b0f6f43?auto=format&fit=crop&w=1200&q=80'
-    ];
-
-    const cartKey = 'tk_cart_v4';
-    let cart = loadCart();
-    let activeCategory = 'All';
-    let searchTerm = '';
-
-    function loadCart() {
-      try {
-        const saved = localStorage.getItem(cartKey);
-        return saved ? JSON.parse(saved) : [];
-      } catch (error) {
-        return [];
-      }
-    }
-
-    function saveCart() {
-      localStorage.setItem(cartKey, JSON.stringify(cart));
-      renderCart();
-      renderCheckout();
-    }
-
-    function money(value) {
-      return '£' + Number(value).toFixed(2);
-    }
-
-    function filteredProducts() {
-      return productData.filter(product => {
-        const categoryMatch = activeCategory === 'All' || product.category === activeCategory;
-        const search = searchTerm.trim().toLowerCase();
-        const searchMatch = !search || [product.name, product.category, product.badge].join(' ').toLowerCase().includes(search);
-        return categoryMatch && searchMatch;
-      });
-    }
-
-    function renderFilterChips() {
-      const categories = ['All', 'Gym', 'Streetwear', 'Accessories'];
-      const holder = document.getElementById('filterChips');
-      holder.innerHTML = '';
-      categories.forEach(category => {
-        const button = document.createElement('button');
-        button.className = 'chip' + (activeCategory === category ? ' active' : '');
-        button.textContent = category;
-        button.onclick = () => {
-          activeCategory = category;
-          renderFilterChips();
-          renderShop();
-        };
-        holder.appendChild(button);
-      });
-    }
-
-    function getProductImage(productName, logoId) {
-      const index = logoId - 1;
-      return modelImages[index % modelImages.length];
-    }
-
-    function getLogoFile(logoId) {
-      const logo = logoVariants.find(v => v.id === Number(logoId));
-      return logo ? logo.file : 'images/logo1.png';
-    }
-
-    function getLogoLabel(logoId) {
-      const logo = logoVariants.find(v => v.id === Number(logoId));
-      return logo ? logo.label : 'Logo 1';
-    }
-
-    function renderFeatured() {
-      const featuredItems = [
-        { product: productData[0], logoId: 1, color: productData[0].colors[0] },
-        { product: productData[2], logoId: 2, color: productData[2].colors[1] },
-        { product: productData[6], logoId: 3, color: productData[6].colors[2] },
-        { product: productData[12], logoId: 1, color: productData[12].colors[0] }
-      ];
-
-      const grid = document.getElementById('featuredGrid');
-      grid.innerHTML = '';
-
-      featuredItems.forEach(({ product, logoId, color }) => {
-        const card = document.createElement('article');
-        card.className = 'featured-card';
-        card.innerHTML = `
-          <div class="product-media">
-            <img src="${getProductImage(product.name, logoId)}" alt="${product.name} ${getLogoLabel(logoId)}">
-            <div class="product-logo-overlay">
-              <img src="${getLogoFile(logoId)}" alt="${getLogoLabel(logoId)}">
-            </div>
-          </div>
-          <div class="featured-content">
-            <span class="tag">${product.badge}</span>
-            <h3>${product.name} ${getLogoLabel(logoId)}</h3>
-            <p>${product.category} piece, set up as a bigger feature card for the home page.</p>
-            <div class="price-row">
-              <strong class="price">${money(product.price)}</strong>
-              <button class="btn" onclick="addToCart('${escapeJs(product.name)}', ${logoId}, '${color}')">Add</button>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    function renderShop() {
-      const grid = document.getElementById('productGrid');
-      const items = filteredProducts();
-      grid.innerHTML = '';
-
-      if (!items.length) {
-        grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;">No products match this filter yet.</div>';
-        return;
-      }
-
-      items.forEach(product => {
-        logoVariants.forEach(logo => {
-          const defaultColor = product.colors[0];
-          const card = document.createElement('article');
-          card.className = 'product-card';
-          card.dataset.product = product.name;
-          card.dataset.logo = logo.id;
-          card.dataset.color = defaultColor;
-
-          card.innerHTML = `
-            <div class="product-media">
-              <div class="badge-row">
-                <span class="badge gold">${product.badge}</span>
-                <span class="badge">${product.category}</span>
-                <span class="badge">${logo.label}</span>
-              </div>
-              <img src="${getProductImage(product.name, logo.id)}" alt="${product.name} ${logo.label}">
-              <div class="product-logo-overlay">
-                <img src="${logo.file}" alt="${logo.label}">
-              </div>
-            </div>
-
-            <div class="product-body">
-              <div class="product-top">
-                <div>
-                  <h3 class="product-title">${product.name}</h3>
-                  <div class="product-meta">${logo.label} · ${product.category}</div>
-                </div>
-                <div style="font-size:22px;font-weight:900;">${money(product.price)}</div>
-              </div>
-
-              <div>
-                <div class="product-meta" style="margin-bottom:8px;">Colour options</div>
-                <div class="swatches">
-                  ${product.colors.map((color, index) => `
-                    <button
-                      class="swatch${index === 0 ? ' active' : ''}"
-                      title="${color}"
-                      aria-label="${product.name} ${color}"
-                      style="background:${color}"
-                      onclick="setCardColor(this, '${escapeJs(product.name)}', ${logo.id}, '${color}')">
-                    </button>
-                  `).join('')}
-                </div>
-              </div>
-
-              <div>
-                <div class="product-meta" style="margin-bottom:8px;">Logo version</div>
-                <div class="logo-switcher">
-                  ${logoVariants.map(v => `
-                    <button class="logo-pill${v.id === logo.id ? ' active' : ''}" onclick="setCardLogo(this, '${escapeJs(product.name)}', ${v.id})">
-                      <img src="${v.file}" alt="${v.label}">
-                    </button>
-                  `).join('')}
-                </div>
-              </div>
-
-              <div class="product-actions">
-                <button class="btn" onclick="addToCart('${escapeJs(product.name)}', ${logo.id}, '${defaultColor}')">Add to cart</button>
-                <button class="btn secondary" onclick="openCart()">View cart</button>
-              </div>
-            </div>
-          `;
-          grid.appendChild(card);
-        });
-      });
-    }
-
-    function setCardColor(button, productName, logoId, color) {
-      const card = button.closest('.product-card');
-      card.dataset.color = color;
-      card.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
-      button.classList.add('active');
-    }
-
-    function setCardLogo(button, productName, logoId) {
-      const card = button.closest('.product-card');
-      card.dataset.logo = logoId;
-      card.querySelectorAll('.logo-pill').forEach(p => p.classList.remove('active'));
-      button.classList.add('active');
-
-      const img = card.querySelector('.product-media > img');
-      img.src = getProductImage(productName, logoId);
-
-      const overlayImg = card.querySelector('.product-logo-overlay img');
-      overlayImg.src = getLogoFile(logoId);
-      overlayImg.alt = getLogoLabel(logoId);
-
-      const badgeCells = card.querySelectorAll('.badge');
-      if (badgeCells[2]) badgeCells[2].textContent = getLogoLabel(logoId);
-
-      const meta = card.querySelector('.product-meta');
-      if (meta) {
-        const category = card.querySelectorAll('.badge')[1].textContent;
-        meta.textContent = `${getLogoLabel(logoId)} · ${category}`;
-      }
-
-      const addBtn = card.querySelector('.product-actions .btn');
-      const color = card.dataset.color || '#000000';
-      addBtn.setAttribute('onclick', `addToCart('${escapeJs(productName)}', ${logoId}, '${color}')`);
-    }
-
-    function escapeJs(str) {
-      return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, ' ');
-    }
-
-    function addToCart(productName, logoId, color) {
-      const product = productData.find(p => p.name === productName);
-      if (!product) return;
-
-      const logoLabel = getLogoLabel(logoId);
-      const id = `${productName}||${logoId}||${color}`;
-      const existing = cart.find(item => item.id === id);
-
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({
-          id,
-          name: productName,
-          logo: logoLabel,
-          logoId,
-          color,
-          price: product.price,
-          qty: 1,
-          image: getProductImage(productName, logoId),
-          logoFile: getLogoFile(logoId)
-        });
-      }
-
-      saveCart();
-      toggleCart(true);
-    }
-
-    function removeItem(id) {
-      cart = cart.filter(item => item.id !== id);
-      saveCart();
-    }
-
-    function changeQty(id, delta) {
-      const item = cart.find(x => x.id === id);
-      if (!item) return;
-      item.qty += delta;
-      if (item.qty < 1) {
-        cart = cart.filter(x => x.id !== id);
-      }
-      saveCart();
-    }
-
-    function calcSubtotal() {
-      return cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    }
-
-    function renderCart() {
-      const holder = document.getElementById('drawerItems');
-      const subtotal = calcSubtotal();
-      holder.innerHTML = '';
-
-      document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.qty, 0);
-      document.getElementById('drawerSubtotal').textContent = money(subtotal);
-
-      if (!cart.length) {
-        holder.innerHTML = '<div class="empty-state">Your cart is empty. Add a product from the shop.</div>';
-        return;
-      }
-
-      cart.forEach(item => {
-        const row = document.createElement('div');
-        row.className = 'drawer-item';
-        row.innerHTML = `
-          <img src="${item.image}" alt="${item.name}">
-          <div>
-            <h4>${item.name}</h4>
-            <p>${item.logo} · ${item.color}</p>
-            <p>${money(item.price)} each</p>
-          </div>
-          <div class="drawer-controls">
-            <div class="drawer-mini">
-              <button class="tiny-btn" onclick="changeQty('${escapeJs(item.id)}', -1)">−</button>
-              <strong>${item.qty}</strong>
-              <button class="tiny-btn" onclick="changeQty('${escapeJs(item.id)}', 1)">+</button>
-            </div>
-            <button class="remove-btn" onclick="removeItem('${escapeJs(item.id)}')">Remove</button>
-          </div>
-        `;
-        holder.appendChild(row);
-      });
-    }
-
-    function renderCheckout() {
-      const tbody = document.getElementById('checkoutTable');
-      const subtotal = calcSubtotal();
-      tbody.innerHTML = '';
-
-      if (!cart.length) {
-        tbody.innerHTML = '<tr><td colspan="4"><div class="empty-state">No items in checkout yet.</div></td></tr>';
-      } else {
-        cart.forEach(item => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${item.name}<br><span style="color:var(--muted);font-size:13px;">${item.logo} · ${item.color}</span></td>
-            <td>
-              <div class="qty-stepper">
-                <button onclick="changeQty('${escapeJs(item.id)}', -1)">−</button>
-                <strong>${item.qty}</strong>
-                <button onclick="changeQty('${escapeJs(item.id)}', 1)">+</button>
-              </div>
-            </td>
-            <td>${money(item.price * item.qty)}</td>
-            <td><button class="remove-btn" onclick="removeItem('${escapeJs(item.id)}')">Remove</button></td>
-          `;
-          tbody.appendChild(tr);
-        });
-      }
-
-      document.getElementById('checkoutSubtotal').textContent = money(subtotal);
-      document.getElementById('checkoutTotal').textContent = money(subtotal);
-    }
-
-    function toggleCart(force) {
-      const drawer = document.getElementById('cartDrawer');
-      const backdrop = document.getElementById('drawerBackdrop');
-      const open = typeof force === 'boolean' ? force : !drawer.classList.contains('open');
-      drawer.classList.toggle('open', open);
-      backdrop.classList.toggle('show', open);
-    }
-
-    function openCart() {
-      toggleCart(true);
-    }
-
-    function completeOrder() {
-      if (!cart.length) {
-        alert('Your cart is empty.');
-        return;
-      }
-      alert('Thank you — your order has been placed successfully.');
-      cart = [];
-      saveCart();
-      toggleCart(false);
-    }
-
-    function scrollToSection(id) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    function hideNewsletter() {
-      document.getElementById('newsletterBox').classList.remove('show');
-      localStorage.setItem('tk_newsletter_hidden', '1');
-    }
-
-    document.getElementById('searchInput').addEventListener('input', (event) => {
-      searchTerm = event.target.value;
-      renderShop();
-    });
-
-    document.querySelectorAll('[data-filter]').forEach(card => {
-      card.addEventListener('click', () => {
-        activeCategory = card.dataset.filter;
-        renderFilterChips();
-        renderShop();
-        scrollToSection('shop');
-      });
-    });
-
-    const newsletterHidden = localStorage.getItem('tk_newsletter_hidden') === '1';
-    if (!newsletterHidden) {
-      setTimeout(() => {
-        document.getElementById('newsletterBox').classList.add('show');
-      }, 5000);
-    }
-
-    renderFilterChips();
-    renderFeatured();
-    renderShop();
-    renderCart();
-    renderCheckout();
-  </script>
+
+<header>
+
+<div class="logo">
+<img src="images/logo1.png">
+<span>TK Clothing</span>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#logos">Logos</a>
+<a href="#featured">Featured</a>
+<a href="#shop">Shop</a>
+<a href="#about">About</a>
+<a href="#checkout">Checkout</a>
+</nav>
+
+<button onclick="toggleCart()">Cart</button>
+
+</header>
+
+
+<section class="hero" id="home">
+<h1>TK CLOTHING</h1>
+</section>
+
+
+
+<section class="section" id="logos">
+
+<h2>Brand Identity</h2>
+
+<div class="logo-grid">
+
+<div class="logo-card">
+<img src="images/logo1.png">
+<p>Primary Luxury Mark</p>
+</div>
+
+<div class="logo-card">
+<img src="images/logo2.png">
+<p>Minimal Identity Mark</p>
+</div>
+
+<div class="logo-card">
+<img src="images/logo3.png">
+<p>Performance Identity Mark</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section" id="featured">
+
+<h2>Featured Pieces</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+<h3>Signature Hoodie</h3>
+<p>Premium cotton hoodie built for training and everyday wear.</p>
+</div>
+
+<div class="feature">
+<h3>Training Joggers</h3>
+<p>Performance joggers designed for comfort and movement.</p>
+</div>
+
+<div class="feature">
+<h3>Street Cargo Pants</h3>
+<p>Utility cargos blending gym wear with streetwear style.</p>
+</div>
+
+<div class="feature">
+<h3>Performance Tank</h3>
+<p>Lightweight tank built for high intensity workouts.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section" id="shop">
+
+<h2>Shop</h2>
+
+<div class="shop-grid">
+
+<div class="product">
+<h3>TK Hoodie</h3>
+<div class="price">£18</div>
+<button onclick="addToCart('TK Hoodie',18)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Joggers</h3>
+<div class="price">£18</div>
+<button onclick="addToCart('Joggers',18)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Cargos</h3>
+<div class="price">£14.99</div>
+<button onclick="addToCart('Cargos',14.99)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Tank Top</h3>
+<div class="price">£8</div>
+<button onclick="addToCart('Tank Top',8)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Leggings</h3>
+<div class="price">£12</div>
+<button onclick="addToCart('Leggings',12)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Tracksuit Set</h3>
+<div class="price">£18</div>
+<button onclick="addToCart('Tracksuit Set',18)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Training Shorts</h3>
+<div class="price">£8</div>
+<button onclick="addToCart('Shorts',8)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Beanie</h3>
+<div class="price">£12</div>
+<button onclick="addToCart('Beanie',12)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Hat</h3>
+<div class="price">£12</div>
+<button onclick="addToCart('Hat',12)">Add to Cart</button>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section" id="about">
+
+<h2>About TK Clothing</h2>
+
+<p>
+
+TK Clothing is built around strength, discipline, and confidence.  
+The brand combines gym performance apparel with modern streetwear design.
+
+Every piece is designed to move between training and everyday life without losing style.
+
+</p>
+
+</section>
+
+
+
+<section class="section" id="checkout">
+
+<h2>Checkout</h2>
+
+<div id="checkoutItems"></div>
+
+<h3 id="total">Total: £0</h3>
+
+<button onclick="completeOrder()">Complete Purchase</button>
+
+</section>
+
+
+
+<div class="cart" id="cart">
+
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<h3 id="cartTotal">Total: £0</h3>
+
+</div>
+
+
+
+<footer>
+
+TK Clothing © 2026
+
+</footer>
+
+
+
+<script>
+
+let cart=[]
+
+function toggleCart(){
+document.getElementById("cart").classList.toggle("open")
+}
+
+function addToCart(name,price){
+
+cart.push({name,price})
+
+renderCart()
+
+}
+
+function renderCart(){
+
+let items=document.getElementById("cartItems")
+let checkout=document.getElementById("checkoutItems")
+
+items.innerHTML=""
+checkout.innerHTML=""
+
+let total=0
+
+cart.forEach((item,i)=>{
+
+total+=item.price
+
+items.innerHTML+=`
+<div class="cart-item">
+${item.name} - £${item.price}
+</div>
+`
+
+checkout.innerHTML+=`
+<div>
+${item.name} - £${item.price}
+</div>
+`
+
+})
+
+document.getElementById("cartTotal").innerText="Total: £"+total.toFixed(2)
+document.getElementById("total").innerText="Total: £"+total.toFixed(2)
+
+}
+
+function completeOrder(){
+
+if(cart.length===0){
+
+alert("Cart is empty")
+return
+
+}
+
+alert("Order completed!")
+
+cart=[]
+
+renderCart()
+
+}
+
+</script>
+
 </body>
 </html>
