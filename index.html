@@ -3,70 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TK Clothing — Full Variants</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<title>TK Clothing - Insane Level</title>
 
 <style>
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif;}
-body {background:#0a0a0a; color:white; overflow-x:hidden;}
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { background:#0a0a0a; color:white; overflow-x:hidden; }
 
-/* NAVBAR */
-header {display:flex; justify-content:space-between; align-items:center; padding:20px 60px; position:fixed; width:100%; top:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(10px); z-index:100; transition:0.3s;}
-header.scrolled {background:rgba(0,0,0,0.9);}
-header h1 {color:gold; letter-spacing:3px; font-size:28px;}
-nav a {margin-left:30px; text-decoration:none; color:#ccc; transition:0.3s; font-weight:500;}
-nav a:hover {color:gold;}
+/* HEADER */
+header { display:flex; justify-content:space-between; padding:20px 60px; position:fixed; width:100%; background:rgba(0,0,0,0.7); backdrop-filter:blur(10px); z-index:100; transition:0.3s; }
+header h1 { color:gold; letter-spacing:3px; cursor:pointer; }
+nav a { margin-left:30px; text-decoration:none; color:#ccc; transition:0.3s; }
+nav a:hover { color:gold; }
 
 /* HERO */
-.hero {height:100vh; position:relative; display:flex; flex-direction:column; justify-content:center; padding-left:60px; overflow:hidden;}
-.hero video {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;}
-.hero h2, .hero p, .hero .btn {opacity:0; transform:translateY(30px); transition:1s;}
-.hero.animate h2, .hero.animate p, .hero.animate .btn {opacity:1; transform:translateY(0);}
-.hero h2 {font-size:70px; max-width:700px;}
-.hero p {margin:20px 0; color:#aaa; font-size:18px;}
-.hero .btn {padding:14px 30px; background:gold; color:black; border:none; font-weight:bold; cursor:pointer; transition:0.3s;}
-.hero .btn:hover {transform:scale(1.05);}
+.hero { height:100vh; background:linear-gradient(to bottom, rgba(0,0,0,0.6), #0a0a0a), url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab'); background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center; padding-left:60px; position:relative; overflow:hidden; }
+.hero h2, .hero p { opacity:0; transform:translateY(20px); animation:fadeInUp 1s ease forwards; }
+.hero p { animation-delay:0.5s; color:#aaa; font-size:18px; }
+.hero h2 { font-size:70px; animation-delay:0.2s; }
+.btn { padding:14px 30px; background:gold; color:black; border:none; font-weight:bold; cursor:pointer; transition:0.3s; margin-top:20px; }
+.btn:hover { transform:scale(1.05); }
+
+@keyframes fadeInUp { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
 
 /* SECTION */
-.section {padding:100px 60px;}
-.section h2 {font-size:48px; margin-bottom:40px; opacity:0; transform:translateY(30px); transition:1s;}
-.section.animate h2 {opacity:1; transform:translateY(0);}
+.section { padding:100px 60px; }
+.categories { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+.category { height:300px; background-size:cover; background-position:center; position:relative; cursor:pointer; overflow:hidden; transition:0.5s; }
+.category::after { content: ''; position:absolute; inset:0; background:rgba(0,0,0,0.4); transition:0.3s; }
+.category:hover::after { background:rgba(0,0,0,0.2); }
+.category h3 { position:absolute; bottom:20px; left:20px; z-index:2; font-size:24px; }
 
-/* CATEGORY TABS */
-.tabs {display:flex; gap:15px; margin-bottom:30px; flex-wrap:wrap;}
-.tab {padding:10px 20px; background:#111; border-radius:20px; cursor:pointer; transition:0.3s;}
-.tab.active {background:gold; color:black;}
-.tab:hover {background:gold; color:black;}
+.products { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; }
+.product { width:260px; background:#111; padding:15px; border-radius:10px; transition:0.3s; position:relative; overflow:hidden; }
+.product:hover { transform:translateY(-8px); }
+.product img { width:100%; border-radius:10px; transition:0.5s; }
+.product img:hover { transform:scale(1.05); }
+.product h4 { margin-top:10px; }
+.product p { color:#aaa; }
+.variant-selector { display:flex; gap:5px; margin-top:5px; }
+.color-swatch { width:20px; height:20px; border-radius:50%; cursor:pointer; border:1px solid #ccc; transition:0.3s; }
+.color-swatch:hover { transform:scale(1.2); border-color:gold; }
+.product-logo { margin-top:5px; cursor:pointer; display:flex; }
+.product-logo img { width:30px; height:30px; margin-right:5px; border:1px solid #333; border-radius:5px; transition:0.3s; }
+.product-logo img:hover { border-color:gold; transform:scale(1.1); }
 
-/* PRODUCTS */
-.products {display:flex; gap:30px; flex-wrap:wrap; justify-content:center;}
-.product {width:260px; background:#111; padding:15px; border-radius:10px; transition:0.3s; opacity:0; transform:translateY(30px);}
-.product:hover {transform:translateY(-8px) scale(1.03);}
-.product img {width:100%; border-radius:10px;}
-.product h4 {margin-top:10px;}
-.product p {color:#aaa;}
-.product.animate {opacity:1; transform:translateY(0);}
-.product .btn {margin-top:10px; position:sticky; bottom:10px; width:100%; background:gold; color:black; border:none; cursor:pointer;}
-.product select {margin-top:10px; width:100%; padding:5px; border-radius:5px; border:none; background:#222; color:white;}
+/* SPLIT */
+.split { display:flex; flex-wrap:wrap; }
+.split div { flex:1; min-width:300px; padding:60px; }
+.split img { width:100%; border-radius:10px; }
 
-/* SPLIT SECTION */
-.split {display:flex; flex-wrap:wrap;}
-.split div {flex:1; min-width:300px; padding:60px; opacity:0; transform:translateY(30px); transition:1s;}
-.split img {width:100%; border-radius:10px;}
-.split.animate div {opacity:1; transform:translateY(0);}
+/* CAROUSEL */
+.carousel { display:flex; overflow-x:auto; scroll-behavior:smooth; gap:20px; padding-bottom:20px; }
+.carousel::-webkit-scrollbar { display:none; }
 
 /* FOOTER */
-footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
+footer { text-align:center; padding:40px; border-top:1px solid #222; color:#777; }
 
-/* MINI CART */
-#cart {position:fixed; right:20px; top:80px; width:300px; background:#111; border-radius:10px; padding:20px; display:none; box-shadow:0 0 20px rgba(0,0,0,0.7); z-index:200;}
-#cart h3 {margin-bottom:15px;}
-#cart .item {display:flex; justify-content:space-between; margin-bottom:10px;}
-#cart .close {cursor:pointer; color:gold; float:right;}
+/* CART */
+#cart { position:fixed; top:80px; right:30px; width:300px; background:#111; border:1px solid #333; padding:20px; border-radius:10px; display:none; z-index:200; }
+#cart h3 { margin-bottom:10px; }
+.cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
+#cart-total { font-weight:bold; margin-top:10px; }
 
-/* MOBILE SWIPE */
-@media (max-width:768px){.products {overflow-x:auto; flex-wrap:nowrap; scroll-snap-type:x mandatory;}.product {flex:0 0 auto; scroll-snap-align:center;}}
+/* COUNTDOWN TIMER */
+.countdown { font-weight:bold; color:gold; margin-top:10px; }
+
+/* SOCIAL FEED */
+.social-feed { display:flex; gap:20px; overflow-x:auto; padding:20px 0; }
+.social-feed div { min-width:200px; height:300px; background:#111; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#777; }
+
+/* NEWSLETTER */
+#newsletter { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#111; border:1px solid #333; padding:20px; border-radius:10px; display:none; z-index:300; }
+#newsletter input { padding:10px; width:200px; margin-right:10px; border:none; border-radius:5px; }
+#newsletter button { padding:10px; background:gold; border:none; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -75,25 +84,34 @@ footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
   <h1>TK</h1>
   <nav>
     <a href="#">Home</a>
-    <a href="#shop">Shop</a>
-    <a href="#collections">Collections</a>
-    <a href="#about">About</a>
+    <a href="#">Shop</a>
+    <a href="#">Collections</a>
+    <a href="#">About</a>
   </nav>
 </header>
 
 <section class="hero">
-  <video autoplay muted loop>
-    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
-  </video>
   <h2>TRAIN HARD. LIVE SHARP.</h2>
   <p>Premium gym & streetwear built for performance and lifestyle.</p>
-  <button class="btn" onclick="scrollToSection('shop')">SHOP NOW</button>
+  <button class="btn" onclick="scrollToProducts()">SHOP NOW</button>
+  <div class="countdown" id="dropCountdown"></div>
 </section>
 
-<section id="collections" class="section">
+<section class="section" id="collections">
   <h2>Collections</h2>
-  <div class="tabs" id="tabs"></div>
-  <div class="products" id="tab-products"></div>
+  <br>
+  <div class="categories">
+    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438')"><h3>Gym Wear</h3></div>
+    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38')"><h3>Streetwear</h3></div>
+    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c')"><h3>Accessories</h3></div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <h2>Featured Products</h2>
+  <div class="carousel" id="product-grid">
+    <!-- Products injected via JS -->
+  </div>
 </section>
 
 <section class="split">
@@ -106,63 +124,116 @@ footer {text-align:center; padding:40px; border-top:1px solid #222; color:#777;}
   </div>
 </section>
 
+<section class="section">
+  <h2>Social Feed</h2>
+  <div class="social-feed">
+    <div>Instagram Post 1</div>
+    <div>Instagram Post 2</div>
+    <div>TikTok Post 1</div>
+    <div>Instagram Post 3</div>
+  </div>
+</section>
+
 <footer>
   © 2026 TK Clothing — Strength. Discipline. Confidence.
 </footer>
 
 <div id="cart">
-  <h3>My Cart <span class="close" onclick="toggleCart()">✕</span></h3>
+  <h3>Cart</h3>
   <div id="cart-items"></div>
+  <p id="cart-total">Total: £0</p>
+</div>
+
+<div id="newsletter">
+  <p>Sign up for exclusive drops:</p>
+  <input type="email" placeholder="Email address"><button>Subscribe</button>
 </div>
 
 <script>
-/* SCROLL ANIMATIONS */
-window.addEventListener('scroll',()=>{
-  const scroll = window.scrollY;
-  document.querySelector('header').classList.toggle('scrolled', scroll>50);
-  document.querySelectorAll('.hero, .section, .product, .split').forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight -100){el.classList.add('animate');}
-  });
-});
+const products = [
+  {name:'Hoodie', price:18, logos:3, colors:['#000','#fff','#555']},
+  {name:'Joggers', price:18, logos:3, colors:['#000','#555','#888']},
+  {name:'Cargos', price:14.99, logos:3, colors:['#111','#333','#666']},
+  {name:'Tank Top', price:8, logos:3, colors:['#000','#fff','#999']},
+  {name:'Leggings', price:12, logos:3, colors:['#000','#111','#222']},
+  {name:'Tracksuit Bottoms', price:15, logos:3, colors:['#000','#333','#555']},
+  {name:'Tracksuit Hoodie', price:18, logos:3, colors:['#000','#444','#888']},
+  {name:'4 Pair Socks', price:6, logos:3, colors:['#fff','#ccc','#999']},
+  {name:'Shorts', price:8, logos:3, colors:['#000','#555','#777']},
+  {name:'Boxers Pack of 4', price:8, logos:3, colors:['#000','#333','#666']},
+  {name:'Tops', price:9.99, logos:3, colors:['#000','#555','#aaa']},
+  {name:'Jeans', price:15, logos:3, colors:['#111','#222','#333']},
+  {name:'Cropped Jacket', price:12.99, logos:3, colors:['#000','#555','#777']},
+  {name:'Cropped Hoodie', price:12.99, logos:3, colors:['#000','#333','#555']},
+  {name:'Cropped Top', price:12.99, logos:3, colors:['#000','#666','#999']},
+  {name:'Hat', price:12, logos:3, colors:['#000','#fff','#222']},
+  {name:'Beanie', price:12, logos:3, colors:['#000','#333','#555']}
+];
 
-/* MINI CART */
-let cart=[];
-function toggleCart(){document.getElementById('cart').style.display=document.getElementById('cart').style.display==='block'?'none':'block';}
-function addToCart(name,price,color,logo){cart.push({name,price,color,logo}); let itemsDiv=document.getElementById('cart-items'); itemsDiv.innerHTML=''; cart.forEach(i=>{itemsDiv.innerHTML+=`<div class="item">${i.name} (${i.color}, ${i.logo}) <span>£${i.price}</span></div>`;}); toggleCart();}
+const cart=[];
 
-function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
-
-/* CATEGORY + VARIANTS */
-const colors=['Black','Grey','White','Olive'];
-const logos=['Logo 1','Logo 2','Logo 3'];
-
-const categories = {
-  'Hoodies & Zipups':18,'Joggers':18,'Cargos':14.99,'Tank Tops':8,'Leggings':12,'Tracksuit Bottoms':15,'Cropped Jackets/Hoodies/Tops':12.99,'Tops':9.99,'Shorts':8,'Jeans':15,'Boxers Pack of 4':8,'Socks 4 Pack':6,'Hats & Beanies':12
-};
-
-const tabsDiv=document.getElementById('tabs');
-const productsDiv=document.getElementById('tab-products');
-
-Object.keys(categories).forEach((cat,index)=>{
-  let tab=document.createElement('div'); tab.className='tab'; if(index===0) tab.classList.add('active');
-  tab.innerText=cat;
-  tab.onclick=()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); tab.classList.add('active'); showCategory(cat);};
-  tabsDiv.appendChild(tab);
-});
-
-function showCategory(cat){productsDiv.innerHTML='';
-  logos.forEach(logo=>{
-    colors.forEach(color=>{
-      let div=document.createElement('div'); div.className='product animate';
-      div.innerHTML=`<img src='https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf'/><h4>${cat}</h4><p>£${categories[cat]}</p><select>`+
-        colors.map(c=>`<option value='${c}' ${c===color?'selected':''}>${c}</option>`).join('')+
-        `</select><p>${logo}</p><button class='btn' onclick='addToCart("${cat}",${categories[cat]},this.previousElementSibling.value,"${logo}")'>Add</button>`;
-      productsDiv.appendChild(div);
-    });
+function renderProducts(){
+  const grid=document.getElementById('product-grid');
+  products.forEach(p=>{
+    for(let l=1;l<=p.logos;l++){
+      const div=document.createElement('div');
+      div.className='product';
+      div.innerHTML=`<img src='https://via.placeholder.com/260x260?text=${p.name}+Logo${l}'>
+      <h4>${p.name} Logo ${l}</h4>
+      <p>£${p.price}</p>`;
+      const colorDiv=document.createElement('div');
+      colorDiv.className='variant-selector';
+      p.colors.forEach(c=>{
+        const swatch=document.createElement('div');
+        swatch.className='color-swatch';
+        swatch.style.background=c;
+        swatch.onclick=()=>div.querySelector('img').style.background=c;
+        colorDiv.appendChild(swatch);
+      });
+      div.appendChild(colorDiv);
+      const btn=document.createElement('button');
+      btn.className='btn'; btn.textContent='Add to Cart';
+      btn.onclick=()=>addToCart(p.name+' Logo '+l,p.price);
+      div.appendChild(btn);
+      grid.appendChild(div);
+    }
   });
 }
 
-showCategory(Object.keys(categories)[0]);
+function addToCart(name,price){
+  cart.push({name,price});
+  updateCart();
+}
+
+function updateCart(){
+  const container=document.getElementById('cart-items'); container.innerHTML='';
+  let total=0;
+  cart.forEach(item=>{
+    const div=document.createElement('div'); div.className='cart-item';
+    div.innerHTML=`<p>${item.name}</p><p>£${item.price}</p>`;
+    container.appendChild(div);
+    total+=item.price;
+  });
+  document.getElementById('cart-total').textContent='Total: £'+total.toFixed(2);
+  document.getElementById('cart').style.display=cart.length>0?'block':'none';
+}
+
+function scrollToProducts(){ document.getElementById('products').scrollIntoView({behavior:'smooth'}); }
+
+// Countdown Timer Example
+const dropDate = new Date(); dropDate.setHours(dropDate.getHours()+24);
+function updateCountdown(){
+  const now=new Date(); const diff=dropDate-now;
+  if(diff<=0){ document.getElementById('dropCountdown').textContent='Drop Live!'; return; }
+  const h=Math.floor(diff/1000/60/60); const m=Math.floor((diff/1000/60)%60); const s=Math.floor((diff/1000)%60);
+  document.getElementById('dropCountdown').textContent=`Next Drop: ${h}h ${m}m ${s}s`;
+}
+setInterval(updateCountdown,1000);
+
+// Newsletter popup
+setTimeout(()=>{ document.getElementById('newsletter').style.display='block'; }, 5000);
+
+renderProducts();
 </script>
 
 </body>
