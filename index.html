@@ -23,6 +23,7 @@ background:#000;
 border-bottom:1px solid #222;
 position:sticky;
 top:0;
+z-index:100;
 }
 
 .logo img{
@@ -41,12 +42,12 @@ color:white;
 
 .hero{
 height:85vh;
-background-size:cover;
-background-position:center;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+background-size:cover;
+background-position:center;
 }
 
 .hero h1{
@@ -147,15 +148,12 @@ color:#888;
 }
 
 @media(max-width:900px){
-
 .grid{
 grid-template-columns:1fr;
 }
-
 .hero h1{
 font-size:40px;
 }
-
 }
 
 </style>
@@ -166,7 +164,7 @@ font-size:40px;
 <header>
 
 <div class="logo">
-<img src="data:image/jpeg;base64,REPLACE_LOGO1">
+<img src="data:image/jpeg;base64,REPLACED_LOGO1">
 </div>
 
 <nav>
@@ -180,14 +178,12 @@ font-size:40px;
 
 </header>
 
-
-<section class="hero" id="home" style="background-image:url('data:image/jpeg;base64,REPLACE_BANNER')">
+<section class="hero" id="home"
+style="background-image:url('data:image/jpeg;base64,REPLACED_BANNER')">
 
 <h1>TK CLOTHING</h1>
 
 </section>
-
-
 
 <section class="section" id="logos">
 
@@ -196,25 +192,23 @@ font-size:40px;
 <div class="grid">
 
 <div class="card">
-<img src="data:image/jpeg;base64,REPLACE_LOGO1">
+<img src="data:image/jpeg;base64,REPLACED_LOGO1">
 <p>Luxury Logo</p>
 </div>
 
 <div class="card">
-<img src="data:image/png;base64,REPLACE_LOGO2">
-<p>Minimal Logo</p>
+<img src="data:image/png;base64,REPLACED_LOGO2">
+<p>Minimal TK</p>
 </div>
 
 <div class="card">
-<img src="data:image/png;base64,REPLACE_LOGO3">
-<p>Performance Logo</p>
+<img src="data:image/jpeg;base64,REPLACED_LOGO1">
+<p>Brand Signature</p>
 </div>
 
 </div>
 
 </section>
-
-
 
 <section class="section" id="shop">
 
@@ -223,8 +217,6 @@ font-size:40px;
 <div class="grid" id="shopGrid"></div>
 
 </section>
-
-
 
 <section class="section" id="checkout">
 
@@ -238,8 +230,6 @@ font-size:40px;
 
 </section>
 
-
-
 <div class="cart" id="cart">
 
 <h2>Your Cart</h2>
@@ -250,29 +240,22 @@ font-size:40px;
 
 </div>
 
-
-
 <footer>
 TK Clothing © 2026
 </footer>
 
-
-
 <script>
 
-const logo1 = "data:image/jpeg;base64,REPLACE_LOGO1"
-const logo2 = "data:image/png;base64,REPLACE_LOGO2"
-const logo3 = "data:image/png;base64,REPLACE_LOGO3"
+const logo1="data:image/jpeg;base64,REPLACED_LOGO1"
+const logo2="data:image/png;base64,REPLACED_LOGO2"
 
-const products = [
-
-{name:"TK Hoodie",price:18,logo:logo3},
-{name:"Joggers",price:18,logo:logo3},
-{name:"Cargos",price:14.99,logo:logo3},
-{name:"Tank Top",price:8,logo:logo3},
-{name:"Leggings",price:12,logo:logo3},
-{name:"Tracksuit",price:18,logo:logo3}
-
+const products=[
+{name:"TK Hoodie",price:18,logo:logo2},
+{name:"Joggers",price:18,logo:logo2},
+{name:"Cargo Pants",price:14.99,logo:logo2},
+{name:"Tank Top",price:8,logo:logo2},
+{name:"Leggings",price:12,logo:logo2},
+{name:"Tracksuit",price:18,logo:logo2}
 ]
 
 let cart=[]
@@ -310,11 +293,8 @@ document.getElementById("cart").classList.toggle("open")
 }
 
 function addToCart(name,price){
-
 cart.push({name,price})
-
 renderCart()
-
 }
 
 function renderCart(){
@@ -328,12 +308,10 @@ checkout.innerHTML=""
 let total=0
 
 cart.forEach(item=>{
-
 total+=item.price
 
 items.innerHTML+=`<div class="cart-item">${item.name} - £${item.price}</div>`
 checkout.innerHTML+=`<div>${item.name} - £${item.price}</div>`
-
 })
 
 document.getElementById("cartTotal").innerText="Total: £"+total.toFixed(2)
@@ -349,6 +327,7 @@ return
 }
 
 alert("Order completed!")
+
 cart=[]
 renderCart()
 
