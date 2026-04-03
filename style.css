@@ -1,0 +1,43 @@
+
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0a0a0a;color:white}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 50px;background:black;border-bottom:1px solid #222;position:sticky;top:0;z-index:20}
+.logo{font-weight:bold;letter-spacing:3px;font-size:22px}
+nav a{margin-left:25px;color:#bbb;text-decoration:none;font-size:14px}
+nav a:hover{color:white}
+
+.hero{height:95vh;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-inner{background:rgba(0,0,0,.6);padding:80px 110px;border:1px solid #333}
+.hero h1{font-size:72px;margin:0}
+.hero p{margin-top:12px;color:#bbb}
+.btn{margin-top:30px;background:#d4af37;color:black;padding:14px 26px;text-decoration:none;font-weight:bold;display:inline-block}
+
+.section{padding:90px 60px}
+.section-title{text-align:center;margin-bottom:50px;font-size:36px}
+
+.collections{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px}
+.collection{background:#111;padding:40px;text-align:center;border:1px solid #222;transition:.3s}
+.collection:hover{transform:translateY(-8px)}
+.collection img{height:80px;margin-bottom:15px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+
+.product{background:#111;padding:25px;border:1px solid #222;text-align:center;transition:.3s}
+.product:hover{transform:translateY(-6px)}
+.product img{height:70px;margin-bottom:10px}
+.price{margin:10px 0;font-weight:bold}
+
+select{padding:6px;margin-top:8px}
+
+button{margin-top:12px;padding:10px 18px;background:#d4af37;border:none;font-weight:bold;cursor:pointer}
+button:hover{background:#f0d46c}
+
+.product-page{max-width:1200px;margin:auto;padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.product-img{background:#111;border:1px solid #222;display:flex;align-items:center;justify-content:center;height:420px}
+.product-img img{max-height:120px}
+
+.cart{position:fixed;right:0;top:0;width:360px;height:100vh;background:#111;border-left:1px solid #222;padding:25px;transform:translateX(100%);transition:.3s;overflow:auto}
+.cart.open{transform:translateX(0)}
+.cart-item{border-bottom:1px solid #222;padding:12px 0}
+
+footer{text-align:center;padding:50px;border-top:1px solid #222;color:#777;margin-top:60px}
